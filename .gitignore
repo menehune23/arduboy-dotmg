@@ -1,0 +1,8 @@
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.dcm
+*.net
+/hardware/*/gerber/*.zip
+*.blend1
+

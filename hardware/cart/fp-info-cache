@@ -1,4 +1,4 @@
-15785943067099597
+15784358838410597
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -5914,13 +5914,6 @@ C Rect series Radial pin pitch 37.50mm  length 41.5mm width 40mm Capacitor
 0
 2
 2
-cart
-28PIN_CARD_CONNECTOR
-Through hole angled socket strip, 2x14, 2.54mm pitch, 8.51mm socket length, double rows
-Through hole angled socket strip THT 2x14 2.54mm double row
-0
-28
-28
 cart
 CARD_CONNECTOR_14_POS
 

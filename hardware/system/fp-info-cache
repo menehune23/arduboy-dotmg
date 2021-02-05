@@ -1,4 +1,4 @@
-15787525386063848
+15798840218823848
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -66101,11 +66101,60 @@ Through hole angled socket strip THT 2x14 2.54mm double row
 28
 28
 system
+ADAFRUIT_MICRO_LIPO
+
+
+0
+4
+3
+system
 BUZZER
 
 
 0
 2
+2
+system
+DIYMORE_2.42_IN_OLED
+
+
+0
+7
+7
+system
+EXT_PINS
+Through hole straight pin header, 1x04, 2.54mm pitch, single row
+Through hole pin header THT 1x04 2.54mm single row
+0
+10
+10
+system
+OMRON_CAP_B32-2010
+
+
+0
+0
+0
+system
+OMRON_CAP_B32-2110
+
+
+0
+0
+0
+system
+SPDT_SWITCH
+
+
+0
+3
+3
+system
+SW_PUSH_6mm
+https://www.omron.com/ecb/products/pdf/en-b3f.pdf
+tact sw push 6mm
+0
+4
 2
 system
 TO-92

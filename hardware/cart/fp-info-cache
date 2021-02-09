@@ -1,4 +1,4 @@
-15785970046635597
+15795586946328848
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -5914,27 +5914,6 @@ C Rect series Radial pin pitch 37.50mm  length 41.5mm width 40mm Capacitor
 0
 2
 2
-cart
-BREAKAWAY_HOLE
-
-
-0
-0
-0
-cart
-CARD_CONNECTOR_14_POS
-
-
-0
-14
-14
-cart
-PRO_MICRO
-Pro Micro footprint
-promicro ProMicro pro micro
-0
-24
-24
 Connector
 Banana_Jack_1Pin
 Single banana socket, footprint - 6mm drill
@@ -66114,6 +66093,69 @@ Logo WEEE
 0
 0
 0
+system
+28PIN_CARD_CONNECTOR
+Through hole angled socket strip, 2x14, 2.54mm pitch, 8.51mm socket length, double rows
+Through hole angled socket strip THT 2x14 2.54mm double row
+0
+28
+28
+system
+ADAFRUIT_MICRO_LIPO
+
+
+0
+4
+3
+system
+BUZZER
+
+
+0
+2
+2
+system
+DIYMORE_2.42_IN_OLED
+
+
+0
+7
+7
+system
+EXT_PINS
+Through hole straight pin header, 1x04, 2.54mm pitch, single row
+Through hole pin header THT 1x04 2.54mm single row
+0
+10
+10
+system
+OMRON_CAP_B32-2010
+
+
+0
+0
+0
+system
+SPDT_SWITCH
+
+
+0
+3
+3
+system
+TO-92
+TO-92 leads in-line, wide, drill 0.8mm (see NXP sot054_po.pdf)
+to-92 sc-43 sc-43a sot54 PA33 transistor
+0
+3
+3
+system
+VOLUME_POT
+Potentiometer, horizontally mounted, Omeg PC16PU, Omeg PC16PU, Omeg PC16PU, http://www.omeg.co.uk/pc6bubrc.htm
+Potentiometer horizontal  Omeg PC16PU  Omeg PC16PU  Omeg PC16PU
+0
+3
+3
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf

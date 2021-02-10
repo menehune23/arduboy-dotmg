@@ -611,6 +611,4 @@ Text GLabel 5550 4250 3    39   Input ~ 0
 D0
 Wire Wire Line
 	5550 4100 5550 4250
-Text GLabel 8650 3650 3    39   Input ~ 0
-D0
 $EndSCHEMATC

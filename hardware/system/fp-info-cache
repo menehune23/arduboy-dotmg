@@ -1,4 +1,4 @@
-18615161446537848
+18626482525849848
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -80927,12 +80927,26 @@ Through hole angled socket strip THT 2x14 2.54mm double row
 28
 28
 system
+28PIN_CARD_CONNECTOR_CUTOUT
+Through hole angled socket strip, 2x14, 2.54mm pitch, 8.51mm socket length, double rows
+Through hole angled socket strip THT 2x14 2.54mm double row
+0
+0
+0
+system
 ADAFRUIT_MICRO_LIPO
 
 
 0
 4
 3
+system
+BREAKAWAY_TAB
+
+
+0
+0
+0
 system
 BUZZER
 
@@ -80941,6 +80955,13 @@ BUZZER
 2
 2
 system
+BUZZER_CUTOUT
+
+
+0
+0
+0
+system
 DIYMORE_2.42_IN_OLED
 
 
@@ -80948,12 +80969,19 @@ DIYMORE_2.42_IN_OLED
 7
 7
 system
+DIYMORE_2.42_IN_OLED_CUTOUT
+
+
+0
+0
+0
+system
 EXT_PINS
 Through hole straight pin header, 1x04, 2.54mm pitch, single row
 Through hole pin header THT 1x04 2.54mm single row
 0
-10
-10
+11
+11
 system
 OMRON_CAP_B32-2010
 
@@ -80962,7 +80990,21 @@ OMRON_CAP_B32-2010
 0
 0
 system
+OMRON_CAP_B32-2010_CUTOUT
+
+
+0
+0
+0
+system
 OMRON_CAP_B32-2110
+
+
+0
+0
+0
+system
+OMRON_CAP_B32-2110_CUTOUT
 
 
 0
@@ -80989,6 +81031,13 @@ to-92 sc-43 sc-43a sot54 PA33 transistor
 0
 3
 3
+system
+VOLUME_LABEL
+Potentiometer, horizontally mounted, Omeg PC16PU, Omeg PC16PU, Omeg PC16PU, http://www.omeg.co.uk/pc6bubrc.htm
+Potentiometer horizontal  Omeg PC16PU  Omeg PC16PU  Omeg PC16PU
+0
+0
+0
 system
 VOLUME_POT
 Potentiometer, horizontally mounted, Omeg PC16PU, Omeg PC16PU, Omeg PC16PU, http://www.omeg.co.uk/pc6bubrc.htm

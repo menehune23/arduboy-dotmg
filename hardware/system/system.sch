@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "Arduboy CE"
 Date "2021-02-12"
-Rev "1.0-dev2"
+Rev "1.0-dev3"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -165,8 +165,6 @@ NoConn ~ 5750 3600
 NoConn ~ 5750 4100
 NoConn ~ 6750 4100
 NoConn ~ 6650 4100
-Text Notes 5650 3600 1    39   ~ 0
-RAW
 Text Notes 5850 3600 1    39   ~ 0
 RST
 Text Notes 5950 3600 1    39   ~ 0
@@ -279,10 +277,6 @@ F 3 "~" H 3650 3850 50  0001 C CNN
 	1    3650 3650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4850 3450 5650 3450
-Wire Wire Line
-	5650 3450 5650 3600
 $Comp
 L power:GND #PWR0104
 U 1 1 6011CE93
@@ -526,25 +520,25 @@ SCL
 Text GLabel 6750 3450 1    39   Input ~ 0
 D10_A10
 $Comp
-L Connector:Conn_01x11_Female J2
+L Connector:Conn_01x12_Female J2
 U 1 1 6029D390
-P 8350 3450
-F 0 "J2" V 8515 3380 50  0000 C CNN
-F 1 "EXT_PINS" V 8424 3380 50  0000 C CNN
-F 2 "system:EXT_PINS" H 8350 3450 50  0001 C CNN
-F 3 "~" H 8350 3450 50  0001 C CNN
-	1    8350 3450
+P 8250 3450
+F 0 "J2" V 8415 3380 50  0000 C CNN
+F 1 "EXT_PINS" V 8324 3380 50  0000 C CNN
+F 2 "system:EXT_PINS" H 8250 3450 50  0001 C CNN
+F 3 "~" H 8250 3450 50  0001 C CNN
+	1    8250 3450
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:GND #PWR0110
 U 1 1 602A3E9B
-P 7850 3650
-F 0 "#PWR0110" H 7850 3400 50  0001 C CNN
-F 1 "GND" H 7800 3500 50  0000 C CNN
-F 2 "" H 7850 3650 50  0001 C CNN
-F 3 "" H 7850 3650 50  0001 C CNN
-	1    7850 3650
+P 7750 3650
+F 0 "#PWR0110" H 7750 3400 50  0001 C CNN
+F 1 "GND" H 7700 3500 50  0000 C CNN
+F 2 "" H 7750 3650 50  0001 C CNN
+F 3 "" H 7750 3650 50  0001 C CNN
+	1    7750 3650
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -587,10 +581,6 @@ Wire Wire Line
 NoConn ~ 3750 4150
 Wire Wire Line
 	4200 3650 4700 3650
-Wire Wire Line
-	4850 4350 3750 4350
-Wire Wire Line
-	4850 3450 4850 4350
 Connection ~ 5150 3350
 Wire Wire Line
 	5150 3350 5850 3350
@@ -600,7 +590,24 @@ Wire Wire Line
 	5550 4100 5550 4250
 Text GLabel 8650 3650 3    39   Input ~ 0
 D0
-Connection ~ 3750 4350
 Wire Wire Line
 	3750 4350 3750 5200
+Text GLabel 7850 3650 3    39   Input ~ 0
+RAW
+Text GLabel 5650 3600 1    39   Input ~ 0
+RAW
+$Comp
+L power:VCC #PWR?
+U 1 1 6028122A
+P 4250 4350
+F 0 "#PWR?" H 4250 4200 50  0001 C CNN
+F 1 "VCC" V 4250 4500 50  0000 L CNN
+F 2 "" H 4250 4350 50  0001 C CNN
+F 3 "" H 4250 4350 50  0001 C CNN
+	1    4250 4350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4250 4350 3750 4350
+Connection ~ 3750 4350
 $EndSCHEMATC

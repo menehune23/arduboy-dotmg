@@ -1,4 +1,4 @@
-18626482525849848
+18624869906751848
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -80926,13 +80926,6 @@ Through hole angled socket strip THT 2x14 2.54mm double row
 0
 28
 28
-system
-28PIN_CARD_CONNECTOR_CUTOUT
-Through hole angled socket strip, 2x14, 2.54mm pitch, 8.51mm socket length, double rows
-Through hole angled socket strip THT 2x14 2.54mm double row
-0
-0
-0
 system
 ADAFRUIT_MICRO_LIPO
 

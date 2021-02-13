@@ -1,0 +1,87 @@
+# Board definitions for Arduboy CE
+
+menu.core=Core
+menu.boot=Bootloader
+menu.rgbled=RGB LEDs
+
+################################################################################
+# Arduboy CE board
+################################################################################
+
+arduboy-ce.name=Arduboy CE
+
+# Sparkfun Pro Micro 5V
+arduboy-ce.vid.7=0x1b4f
+arduboy-ce.pid.7=0x9205
+arduboy-ce.vid.8=0x1b4f
+arduboy-ce.pid.8=0x9206
+
+arduboy-ce.upload.tool=arduino:avrdude
+arduboy-ce.upload.protocol=avr109
+arduboy-ce.upload.maximum_size=28672
+arduboy-ce.upload.maximum_data_size=2560
+arduboy-ce.upload.speed=57600
+arduboy-ce.upload.disable_flushing=true
+arduboy-ce.upload.use_1200bps_touch=true
+arduboy-ce.upload.wait_for_upload_port=true
+
+arduboy-ce.bootloader.tool=arduino:avrdude
+arduboy-ce.bootloader.low_fuses=0xff
+arduboy-ce.bootloader.high_fuses=0xd0
+arduboy-ce.bootloader.extended_fuses=0xcb
+arduboy-ce.bootloader.unlock_bits=0x3F
+arduboy-ce.bootloader.lock_bits=0x3F
+
+arduboy-ce.build.mcu=atmega32u4
+arduboy-ce.build.f_cpu=16000000L
+arduboy-ce.build.core=arduino:arduino
+
+#arduboy-ce.build.vid=0x1b4f
+#arduboy-ce.build.pid=0x9206
+#using Leonardo vid,pid for driver simplicity
+arduboy-ce.build.vid=0x2341
+arduboy-ce.build.pid=0x8036
+arduboy-ce.build.variant=arduboy-promicro-alt
+arduboy-ce.build.usb_product="ABA1309"
+arduboy-ce.build.board=AVR_PROMICRO -DAB_ALTERNATE_WIRING -DAB_CE
+arduboy-ce.build.extra_flags=-DARDUBOY_10 -DOLED_SSD1309 {build.flash_cs} {build.display.flags} {rgbled_flag} {build.usb_flags}
+
+# Display #
+
+arduboy-ce.build.display=-ssd1309
+arduboy-ce.build.display.flags=-DOLED_SSD1309
+
+# External flash chip select pin #
+
+arduboy-ce.build.flash_cs=-DCART_CS_SDA
+arduboy-ce.build.flashselect=-sda
+
+# Bootloader #
+
+arduboy-ce.menu.boot.cathy3kg=Cathy3K (starts with game)
+arduboy-ce.menu.boot.cathy3kg.upload.maximum_size=29696
+arduboy-ce.menu.boot.cathy3kg.bootloader.high_fuses=0xd2
+arduboy-ce.menu.boot.cathy3kg.bootloader.file=cathy3k/arduboy3k-bootloader-game-promicro-sda.hex
+
+arduboy-ce.menu.boot.cathy3k=Cathy3K (starts with menu)
+arduboy-ce.menu.boot.cathy3k.upload.maximum_size=29696
+arduboy-ce.menu.boot.cathy3k.bootloader.high_fuses=0xd2
+arduboy-ce.menu.boot.cathy3k.bootloader.file=cathy3k/arduboy3k-bootloader-menu-promicro-sda.hex
+
+# Core #
+
+arduboy-ce.menu.core.arduboy-core=Optimized Arduboy core
+arduboy-ce.menu.core.arduboy-core.build.core=arduboy
+
+arduboy-ce.menu.core.arduino-core=Standard Arduino core
+arduboy-ce.menu.core.arduino-core.build.core=arduino:arduino
+
+# RGB LEDs
+
+arduboy-ce.menu.rgbled.no=No RGB LEDs
+arduboy-ce.menu.rgbled.no.rgbled_flag=-DAB_NO_RGBLED
+
+arduboy-ce.menu.rgbled.yes=Has RGB LEDs
+arduboy-ce.menu.rgbled.yes.rgbled_flag=
+
+################################################################################

@@ -43,14 +43,20 @@ extern volatile unsigned char bootloader_timer;
   #define CS_PORT PORTD
   #define CS_BIT PORTD3
 
-  #define PIN_RST 2       // Pro Micro alternative display RST pin (pin 6 favoured for 2nd speaker pin)
-  #define RST_PORT PORTD 
-  #define RST_BIT PORTD1 
+  #ifdef AB_CE
+    #define PIN_RST 0       // Arduboy CE display RST pin
+    #define RST_PORT PORTD
+    #define RST_BIT PORTD2
+  #else
+    #define PIN_RST 2       // Pro Micro alternative display RST pin (pin 6 favoured for 2nd speaker pin)
+    #define RST_PORT PORTD
+    #define RST_BIT PORTD1
+  #endif
 #else
   #define PIN_CS 12       // Display CS Arduino pin number
   #define CS_PORT PORTD   // Display CS port
   #define CS_BIT PORTD6   // Display CS physical bit number
-  
+
   #define PIN_RST 6       // Display reset Arduino pin number
   #define RST_PORT PORTD  // Display reset port
   #define RST_BIT PORTD7  // Display reset physical bit number
@@ -61,7 +67,7 @@ extern volatile unsigned char bootloader_timer;
  #define DC_BIT PORTD4   // Display D/C physical bit number
 
 #ifdef CART_CS_SDA
- #ifdef AB_ALTERNATE_WIRING
+ #if !defined(AB_CE) && defined(AB_ALTERNATE_WIRING)
   #error SDA can not be used as flash chip select when using Pro Micro alternate wiring. Use RX instead.
  #endif
  #define PIN_CART 2        // SDA as alternative flash cart chip select
@@ -86,20 +92,20 @@ extern volatile unsigned char bootloader_timer;
   #define I2C_SCL PORTD3
  #else
   #define I2C_SCL PORTD7
- #endif    
+ #endif
  #define I2C_SDA PORTD4
  //port states
  #define I2C_SDA_HIGH() I2C_PORT |=  (1 << I2C_SDA)
  #define I2C_SCL_HIGH() I2C_PORT |=  (1 << I2C_SCL)
  #define I2C_SDA_LOW()  I2C_PORT &= ~(1 << I2C_SDA)
  #define I2C_SCL_LOW()  I2C_PORT &= ~(1 << I2C_SCL)
- 
+
  //port directions
  #define I2C_SDA_AS_INPUT()  I2C_DDR &= ~(1 << I2C_SDA)
  #define I2C_SCL_AS_INPUT()  I2C_DDR &= ~(1 << I2C_SCL)
  #define I2C_SDA_AS_OUTPUT() I2C_DDR |= (1 << I2C_SDA)
  #define I2C_SCL_AS_OUTPUT() I2C_DDR |= (1 << I2C_SCL)
- 
+
  // display address, commands
  #define SSD1306_I2C_ADDR 0x3c //0x3c:default, 0x3d: alternative)
  #define SSD1306_I2C_CMD  0x00
@@ -192,7 +198,7 @@ extern volatile unsigned char bootloader_timer;
 
 #ifdef AB_ALTERNATE_WIRING
   #define PIN_SPEAKER_2 6      //Pro Micro alternative for 2nd speaker pin
-  #define SPEAKER_2_PORT PORTD 
+  #define SPEAKER_2_PORT PORTD
   #define SPEAKER_2_DDR DDRD
   #define SPEAKER_2_BIT PORTD7
 #else
@@ -333,7 +339,7 @@ extern volatile unsigned char bootloader_timer;
 #ifdef OLED_SH1106
   #define OLED_SET_COLUMN_ADDRESS_LO 0x02 //SH1106 only: 1st pixel starts on column 2
 #else
-  #define OLED_SET_COLUMN_ADDRESS_LO 0x00 
+  #define OLED_SET_COLUMN_ADDRESS_LO 0x00
 #endif
 #define OLED_SET_COLUMN_ADDRESS_HI 0x10
 // -----
@@ -341,7 +347,7 @@ extern volatile unsigned char bootloader_timer;
   #define WIDTH 96
 #else
   #define WIDTH 128 //The standard width of the display in pixels
-#endif    
+#endif
 #if defined(OLED_128X128)
   #define HEIGHT 128
 #elif defined(OLED_96X96) || defined(OLED_128X96) || defined(OLED_96X96_ON_128X128) || defined(OLED_128X96_ON_128X128)
@@ -550,19 +556,19 @@ class Arduboy2Core : public Arduboy2NoUSB
 
 #if defined (OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX)
     void static i2c_start(uint8_t mode);
-    
+
     void static inline i2c_stop() __attribute__((always_inline))
     {
       // SDA and SCL both are already low, from writing ACK bit no need to change state
       I2C_SDA_AS_INPUT(); // switch to input so SDA is pulled up externally first for stop condition
       I2C_SCL_AS_INPUT(); // pull up SCL externally
     }
-    
+
     void static i2c_sendByte(uint8_t byte);
 #endif
-    
+
 //#endif
-    
+
     /** \brief
      * Turn the display off.
      *
@@ -996,9 +1002,9 @@ class Arduboy2Core : public Arduboy2NoUSB
      */
    #ifndef ARDUBOY_CORE
     void static delayShort(uint16_t ms) __attribute__ ((noinline));
-   #else   
+   #else
     void static delayShort(uint16_t ms);
-   #endif 
+   #endif
     void static delayByte(uint8_t ms) __attribute__ ((noinline));
 
     /** \brief

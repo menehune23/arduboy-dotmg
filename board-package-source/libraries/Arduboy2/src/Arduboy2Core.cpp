@@ -21,7 +21,7 @@ const PROGMEM uint8_t Arduboy2Core::lcdBootProgram[] = {
   // might prove useful for reference
   //
   // Further reading: https://www.adafruit.com/datasheets/SSD1306.pdf
-  
+
 #if defined(GU12864_800B)
   0x24, 0x40,                   // enable Layer 0, graphic display area on
   0x47,                         // set brightness
@@ -33,7 +33,7 @@ const PROGMEM uint8_t Arduboy2Core::lcdBootProgram[] = {
   0xC8,                         // Set COM Output Scan Direction
   0x81, 0xCF,                   // Set Contrast v = 0xCF
   0xD9, 0xF1,                   // Set Precharge = 0xF1
-  OLED_SET_COLUMN_ADDRESS_LO,   //Set column address for left most pixel 
+  OLED_SET_COLUMN_ADDRESS_LO,   //Set column address for left most pixel
   0xAF                          // Display On
 #elif defined(LCD_ST7565)
   0xC8,                         //SET_COM_REVERSE
@@ -52,9 +52,9 @@ const PROGMEM uint8_t Arduboy2Core::lcdBootProgram[] = {
  #else
   0x15, 0x00, 0x3f, //Set column start and end address
  #endif
- #if defined (OLED_96X96) 
+ #if defined (OLED_96X96)
   0x75, 0x20, 0x7f, //Set row start and end address
- #elif defined (OLED_128X64_ON_96X96) 
+ #elif defined (OLED_128X64_ON_96X96)
   0x75, 0x30, 0x6f, //Set row start and end address
  #elif defined (OLED_128X96)
   0x75, 0x00, 0x5f, //Set row start and end address
@@ -107,7 +107,7 @@ const PROGMEM uint8_t Arduboy2Core::lcdBootProgram[] = {
  #if defined OLED_SSD1309
   //Charge Pump command not supported, use two NOPs instead to keep same size and easy patchability
   0xE3, 0xE3,
- #else  
+ #else
   // Charge Pump Setting v = enable (0x14)
   // default is disabled
   0x8D, 0x14,
@@ -195,19 +195,19 @@ void Arduboy2Core::bootPins()
   // Port B INPUT_PULLUP or HIGH
   PORTB = (_BV(RED_LED_BIT) | _BV(BLUE_LED_BIT) | //RGB LED off
          #ifndef AB_ALTERNATE_WIRING
-          _BV(GREEN_LED_BIT) | 
+          _BV(GREEN_LED_BIT) |
          #endif
          #ifndef ARDUINO_AVR_MICRO
           _BV(RX_LED_BIT) | //RX LED off for Arduboy and non Micro based Arduino
-         #endif          
+         #endif
           _BV(B_BUTTON_BIT)) &
-  // Port B INPUT or LOW                    
+  // Port B INPUT or LOW
           ~(_BV(SPI_MISO_BIT) | _BV(SPI_MOSI_BIT) | _BV(SPI_SCK_BIT));
 
   // Port B outputs
   DDRB = (_BV(RED_LED_BIT)   | _BV(BLUE_LED_BIT) |
         #ifndef AB_ALTERNATE_WIRING
-         _BV(GREEN_LED_BIT) | 
+         _BV(GREEN_LED_BIT) |
         #endif
          _BV(SPI_MOSI_BIT) | _BV(SPI_SCK_BIT)  | _BV(RX_LED_BIT)) &
   // Port B inputs
@@ -222,8 +222,8 @@ void Arduboy2Core::bootPins()
          #endif
          #if !(defined(ARDUINO_AVR_MICRO))
           _BV(TX_LED_BIT) | //TX LED off for Arduboy and non Micro based Arduino
-         #endif          
-          _BV(CART_BIT) | 
+         #endif
+          _BV(CART_BIT) |
          #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
           _BV(DC_BIT) |
          #endif
@@ -247,10 +247,10 @@ void Arduboy2Core::bootPins()
   // Port D outputs
   DDRD = (
         #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
-         _BV(DC_BIT) | 
+         _BV(DC_BIT) |
         #endif
-        #if !(defined(AB_ALTERNATE_WIRING) && (CART_CS_SDA))
-         _BV(RST_BIT) | 
+        #if defined(AB_CE) || !(defined(AB_ALTERNATE_WIRING) && (CART_CS_SDA))
+         _BV(RST_BIT) |
          _BV(CS_BIT) |
         #endif
         #if defined(AB_ALTERNATE_WIRING)
@@ -280,7 +280,7 @@ void Arduboy2Core::bootPins()
           _BV(UP_BUTTON_BIT) | _BV(DOWN_BUTTON_BIT)) &
   // Port F INPUT or LOW
           ~(_BV(RAND_SEED_IN_BIT));
-  
+
   // Port F outputs (none)
   DDRF = 0 &
   // Port F inputs
@@ -337,15 +337,15 @@ void Arduboy2Core::bootOLED()
   displayEnable();
   for (uint8_t i = 0; i < sizeof(lcdBootProgram) + 8; i++)
   {
-    if (i < 8)    
+    if (i < 8)
     {
       displayWrite(0x62); // set display area
       displayWrite(i);    // display area address
-      LCDDataMode();     
+      LCDDataMode();
       displayWrite(0xFF); // Graphic display
       LCDCommandMode();
     }
-    else 
+    else
       displayWrite(pgm_read_byte(lcdBootProgram + i - 8));
   }
   displayDisable();
@@ -359,7 +359,7 @@ void Arduboy2Core::bootOLED()
   uint8_t cmd;
   const uint8_t* ptr = lcdBootProgram;
   delayByte(5);                          //for a short active low reset pulse
- #if !(defined(AB_ALTERNATE_WIRING) && defined(CART_CS_SDA))
+ #if defined(AB_CE) || !(defined(AB_ALTERNATE_WIRING) && defined(CART_CS_SDA))
   bitSet(RST_PORT, RST_BIT);             //deactivate reset
  #endif
   delayByte(5);
@@ -368,32 +368,32 @@ void Arduboy2Core::bootOLED()
  #endif
   //bitClear(CS_PORT, CS_BIT);               // select the display as default SPI device, already cleared by boot pins)
   LCDCommandMode();
- #if defined __AVR_ARCH__  
+ #if defined __AVR_ARCH__
   asm volatile
   (
-    "3:  lpm  %[cmd], Z+             \n" 
+    "3:  lpm  %[cmd], Z+             \n"
     : [ptr] "+z" (ptr),
       [cmd] "=r" (cmd)
-    : 
     :
-  );    
-  SPItransfer(cmd);                      
+    :
+  );
+  SPItransfer(cmd);
   asm volatile(
     "    cpi  r30, lo8(%[lbp_end])   \n" // check only LSB cause size < 256
     "    brne 3b                     \n"
-    : 
+    :
     : [lbp_end] "" (lcdBootProgram + sizeof(lcdBootProgram))
     :
   );
   LCDDataMode();
  #else
-   for (uint8_t i = 0; i < sizeof(lcdBootProgram); i++) 
+   for (uint8_t i = 0; i < sizeof(lcdBootProgram); i++)
    {
-     cmd = pgm_read_byte(lcdBootProgram + i));       
-     SPItransfer(cmd);                      
+     cmd = pgm_read_byte(lcdBootProgram + i));
+     SPItransfer(cmd);
    }
  #endif
-#endif  
+#endif
 }
 
 // Initialize the SPI interface for the display
@@ -424,7 +424,7 @@ void Arduboy2Core::i2c_start(uint8_t mode)
   I2C_SDA_LOW();       // disable posible internal pullup, ensure SDA low on enabling output
   I2C_SDA_AS_OUTPUT(); // SDA low before SCL for start condition
   I2C_SCL_LOW();
-  I2C_SCL_AS_OUTPUT();  
+  I2C_SCL_AS_OUTPUT();
   i2c_sendByte(SSD1306_I2C_ADDR << 1);
   i2c_sendByte(mode);
 }
@@ -434,20 +434,20 @@ void Arduboy2Core::i2c_sendByte(uint8_t byte)
   uint8_t sda_clr = I2C_PORT & ~((1 << I2C_SDA) | (1 << I2C_SCL));
   uint8_t scl = 1 << I2C_SCL;
   uint8_t sda = 1 << I2C_SDA;
-  uint8_t scl_bit = I2C_SCL;  
-  asm volatile (    
+  uint8_t scl_bit = I2C_SCL;
+  asm volatile (
     "    sec                    \n" // set carry for 8 shift counts
     "    rol  %[byte]           \n" // shift a bit out and count at the same time
     "1:                         \n"
     "    out  %[port], %[sda0]  \n" // preemtively clear SDA
     "    brcc 2f                \n" // skip if dealing with 0 bit
-    "    out  %[pin], %[sda]    \n" 
-    "2:                         \n" 
+    "    out  %[pin], %[sda]    \n"
+    "2:                         \n"
     "    out  %[pin], %[scl]    \n" // toggle SCL on
     "    lsl  %[byte]           \n" // next bit to carry (moved here for 1 extra cycle delay)
     "    out  %[pin], %[scl]    \n" // toggle SCL off
     "    brne 1b                \n" // initial set carry will be shifted out after 8 loops setting Z flag
-    "                           \n" 
+    "                           \n"
     "    out  %[port], %[sda0]  \n" // clear SDA for ACK
     "    nop                    \n" // extra delay
     "    sbi  %[port], %[sclb]  \n" // set SCL (extends ACK bit by 1 cycle)
@@ -530,17 +530,17 @@ void Arduboy2Core::displayOff()
   displayWrite(0x00);
   displayDisable();
 #elif defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX)
-  i2c_start(SSD1306_I2C_CMD);    
+  i2c_start(SSD1306_I2C_CMD);
   i2c_sendByte(0xAE); // display off
   i2c_sendByte(0x8D); // charge pump:
   i2c_sendByte(0x10); //   disable
   i2c_stop();
-#else    
+#else
   LCDCommandMode();
   SPItransfer(0xAE); // display off
   SPItransfer(0x8D); // charge pump:
   SPItransfer(0x10); //   disable
-#endif  
+#endif
 }
 
 // Restart the display after a displayOff()
@@ -558,14 +558,14 @@ void Arduboy2Core::paint8Pixels(uint8_t pixels)
   i2c_start(SSD1306_I2C_DATA);
   i2c_sendByte(pixels);
   i2c_stop();
-#else  
+#else
   SPItransfer(pixels);
 #endif
 }
 
 void Arduboy2Core::paintScreen(const uint8_t *image)
 {
-#if defined(GU12864_800B) 
+#if defined(GU12864_800B)
   displayEnable();
   for (uint8_t r = 0; r < (HEIGHT/8); r++)
   {
@@ -606,10 +606,10 @@ void Arduboy2Core::paintScreen(const uint8_t *image)
  #if defined(OLED_128X64_ON_96X96)
   uint16_t i = 16;
   for (uint8_t col = 0; col < 96 / 2; col++)
- #else     
+ #else
   uint16_t i = 0;
   for (uint8_t col = 0; col < WIDTH / 2; col++)
- #endif     
+ #endif
   {
     for (uint8_t row = 0; row < HEIGHT / 8; row++)
     {
@@ -649,7 +649,7 @@ void Arduboy2Core::paintScreen(const uint8_t *image)
     }
     i -= HEIGHT / 8 * WIDTH  + 1;
   }
-#else 
+#else
   //OLED SSD1306 and compatibles
   for (int i = 0; i < (HEIGHT*WIDTH)/8; i++)
   {
@@ -662,7 +662,7 @@ void Arduboy2Core::paintScreen(const uint8_t *image)
 // will be used by any buffer based subclass
 void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
 {
-#if defined(GU12864_800B) 
+#if defined(GU12864_800B)
   displayEnable();
   for (uint8_t r = 0; r < (HEIGHT/8); r++)
   {
@@ -694,26 +694,26 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
   i2c_start(SSD1306_I2C_DATA);
  #if defined (OLED_SSD1306_I2C)
   //bitbanging I2C ~2Mbps (8 cycles per bit / 78 cycles per byte)
-  asm volatile (    
+  asm volatile (
     "    dec  %[clear]          \n" //  get clear mask 0:0xFF, 1:0x00
     "    ld   r24, %a[ptr]      \n" // fetch display byte from buffer
     "1:                         \n"
     "    mov  r0, r24           \n" // move to shift register
     "    and  r24, %[clear]     \n" // apply clear mask
     "    st   %a[ptr]+, r24     \n" // update buffer
-    "                           \n" 
+    "                           \n"
     "    sec                    \n" // set carry for 8 shift counts
     "    rol  r0                \n" // shift a bit out and count at the same time
     "2:                         \n"
     "    out  %[port], %[sda0]  \n" // preemtively clear SDA
     "    brcc 3f                \n" // skip if dealing with 0 bit
     "    out  %[pin], %[sda]    \n" // toggle SDA on
-    "3:                         \n" 
+    "3:                         \n"
     "    out  %[pin], %[scl]    \n" // toggle SCL on
     "    lsl  r0                \n" // next bit to carry (moved here for 1 extra cycle delay)
     "    out  %[pin], %[scl]    \n" // toggle SCL off
     "    brne 2b                \n" // initial set carry will be shifted out after 8 loops setting Z flag
-    "                           \n" 
+    "                           \n"
     "    out  %[port], %[sda0]  \n" // clear SDA for ACK
     "    subi %A[len], 1        \n" // len-- part1 (moved here for 1 cycle delay)
     "    ld   r24, %a[ptr]      \n" // fetch display byte from buffer (and delay)
@@ -733,7 +733,7 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
   );
  #else
   //bitbanging I2C @ 2.66Mbps (6 cycles per bit / 56 cycles per byte)
-  asm volatile (    
+  asm volatile (
     "    dec  %[clear]          \n" //  get clear mask 0:0xFF, 1:0x00
     "    ld   r0, %a[ptr]       \n" // fetch display byte from buffer
     "1:                         \n"
@@ -743,56 +743,56 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
     "    mov  r24, r0           \n" // duplicate byte (also serves as extra clock cycle delay)
     "    out  %[pin], %[scl]    \n" // toggle SCL low
     "    out  %[port], %[sda0]  \n" // preemptively clear SDA for next bit
-    "                           \n"    
+    "                           \n"
     "    sbrc r0, 6             \n" // repeat of above but for bit 6
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" //    
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    and  r24, %[clear]     \n" // apply clear mask (also serves as extra clock cycle delay)
-    "    out  %[pin], %[scl]    \n" //    
-    "    out  %[port], %[sda0]  \n" //    
-    
-    "    sbrc r0, 5             \n" // 
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" //    
+    "    out  %[pin], %[scl]    \n" //
+    "    out  %[port], %[sda0]  \n" //
+
+    "    sbrc r0, 5             \n" //
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    st   %a[ptr]+, r24     \n" // new buffer contents (also serves as extra clock cycle delay)
-    "    out  %[pin], %[scl]    \n" //    
-    "    out  %[port], %[sda0]  \n" //    
+    "    out  %[pin], %[scl]    \n" //
+    "    out  %[port], %[sda0]  \n" //
 
-    "    sbrc r0, 4             \n" // 
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" // 
+    "    sbrc r0, 4             \n" //
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    cbi  %[port], %[sclb]  \n" // using cbi for extra extra clock cycle delay
-    "    out  %[port], %[sda0]  \n" // 
+    "    out  %[port], %[sda0]  \n" //
 
-    "    sbrc r0, 3             \n" // 
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" // 
+    "    sbrc r0, 3             \n" //
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    cbi  %[port], %[sclb]  \n" // using cbi for extra extra clock cycle delay
-    "    out  %[port], %[sda0]  \n" // 
-    
-    "    sbrc r0, 2             \n" // 
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" // 
+    "    out  %[port], %[sda0]  \n" //
+
+    "    sbrc r0, 2             \n" //
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    cbi  %[port], %[sclb]  \n" // using cbi for extra extra clock cycle delay
-    "    out  %[port], %[sda0]  \n" // 
-    
-    "    sbrc r0, 1             \n" // 
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" // 
+    "    out  %[port], %[sda0]  \n" //
+
+    "    sbrc r0, 1             \n" //
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    cbi  %[port], %[sclb]  \n" // using cbi for extra extra clock cycle delay
-    "    out  %[port], %[sda0]  \n" // 
-    
-    "    sbrc r0, 0             \n" // 
-    "    out  %[pin], %[sda]    \n" //    
-    "    out  %[pin], %[scl]    \n" //    
+    "    out  %[port], %[sda0]  \n" //
+
+    "    sbrc r0, 0             \n" //
+    "    out  %[pin], %[sda]    \n" //
+    "    out  %[pin], %[scl]    \n" //
     "    subi %A[len], 1        \n" // length-- part 1 (also serves as extra clock cycle delay)
-    "    out  %[pin], %[scl]    \n" //    
-    "    out  %[port], %[sda0]  \n" // SDA low for ACK   
-    
+    "    out  %[pin], %[scl]    \n" //
+    "    out  %[port], %[sda0]  \n" // SDA low for ACK
+
     "    sbci %B[len], 0        \n" // length-- part 2 (also serves as extra clock cycle delay)
     "    out  %[pin], %[scl]    \n" // // clock ACK bit
     "    ld   r0, %a[ptr]       \n" // fetch next buffer byte (also serves as clock delay)
-    "    out  %[pin], %[scl]    \n" // 
+    "    out  %[pin], %[scl]    \n" //
     "    brne 1b                \n" // length != 0 do next byte
     :[ptr]   "+e" (image),
      [len]   "+d" (length),
@@ -807,7 +807,7 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
   );
  #endif
   i2c_stop();
-  
+
 #elif defined(OLED_SH1106) || defined(LCD_ST7565)
   //Assembly optimized page mode display code with clear support.
   //Each byte transfer takes 18 cycles
@@ -816,23 +816,23 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
     "1:                                             \n\t"
     "     ldi  r18, %[col_cmd]        ;1            \n\t"
     "     ldi  r20, 6                 ;1            \n\t"
-    "     cbi  %[dc_port], %[dc_bit]  ;2 cmd mode   \n\t"         
+    "     cbi  %[dc_port], %[dc_bit]  ;2 cmd mode   \n\t"
     "                                               \n\t"
-    "     out  %[spdr], r19           ;1            \n\t"         
-    "2:   dec  r20                    ;6*3-1 : 17   \n\t"         
-    "     brne 2b                                   \n\t"         
-    "     out  %[spdr], r18           ;1            \n\t"        
-    
-    "     ldi  r18, %[width]          ;1            \n\t"         
-    "     inc  r18                    ;1            \n\t"              
-    "     rjmp 5f                     ;2            \n\t"              
+    "     out  %[spdr], r19           ;1            \n\t"
+    "2:   dec  r20                    ;6*3-1 : 17   \n\t"
+    "     brne 2b                                   \n\t"
+    "     out  %[spdr], r18           ;1            \n\t"
+
+    "     ldi  r18, %[width]          ;1            \n\t"
+    "     inc  r18                    ;1            \n\t"
+    "     rjmp 5f                     ;2            \n\t"
     "4:                                             \n\t"
     "     lpm  r20, Z                 ;3 delay      \n\t"
     "     ld   r20, Z                 ;2            \n\t"
     "     sbi  %[dc_port], %[dc_bit]  ;2 data mode  \n\t"
-    "     out  %[spdr], r20           ;1            \n\t" 
-    "     cpse %[clear], __zero_reg__ ;1/2          \n\t" 
-    "     mov  r20, __zero_reg__      ;1            \n\t" 
+    "     out  %[spdr], r20           ;1            \n\t"
+    "     cpse %[clear], __zero_reg__ ;1/2          \n\t"
+    "     mov  r20, __zero_reg__      ;1            \n\t"
     "     st   Z+, r20                ;2            \n\t"
     "5:                                             \n\t"
     "     lpm  r20, Z                 ;3 delay      \n\t"
@@ -843,7 +843,7 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
     "     brne 1b                     ;1/2          \n\t"
     "     in    __tmp_reg__, %[spsr]                \n\t" //read SPSR to clear SPIF
     : [ptr]      "+&z" (image)
-    : 
+    :
       [page_cmd] "M" (OLED_SET_PAGE_ADDRESS),
       [page_end] "M" (OLED_SET_PAGE_ADDRESS + (HEIGHT / 8)),
       [dc_port]  "I" (_SFR_IO_ADDR(DC_PORT)),
@@ -860,10 +860,10 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
   // Each transfer takes 18 cycles with additional 4 cycles for a column change.
   asm volatile(
    #if defined(OLED_128X64_ON_96X96)
-    "  adiw   r30, 16                           \n\t"          
+    "  adiw   r30, 16                           \n\t"
    #endif
-    "  ldi   r25, %[col]                        \n\t"          
-    ".lcolumn:                                  \n\t"         
+    "  ldi   r25, %[col]                        \n\t"
+    ".lcolumn:                                  \n\t"
     "   ldi  r24, %[row]            ;1          \n\t"
     ".lrow:                                     \n\t"
     "   ldi  r21, 7                 ;1          \n\t"
@@ -884,7 +884,7 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
     "   rjmp .+0                    ;2          \n\t"
     "   rjmp .lshiftnext            ;2          \n\t"
     ".lclear1:                                  \n\t"
-    "   st   z, __zero_reg__        ;2          \n\t" 
+    "   st   z, __zero_reg__        ;2          \n\t"
     "   std  z+1, __zero_reg__      ;2          \n\t"
     ".lshiftnext:                               \n\t"
     "                                           \n\t"
@@ -975,7 +975,7 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
       [len_lsb] "M"   (WIDTH * (HEIGHT / 8 * 2) & 0xFF), // 2: for delay loop multiplier
       [clear]   "r"   (clear)
   );
-  #endif  
+  #endif
 }
 #if 0
 // For reference, this is the "closed loop" C++ version of paintScreen()
@@ -1025,7 +1025,7 @@ void Arduboy2Core::blank()
   for (int i = 0; i < (HEIGHT * WIDTH) / 8; i++)
     i2c_sendByte(0);
   i2c_stop();
-#else  
+#else
  #if defined (OLED_SH1106)
   for (int i = 0; i < (HEIGHT * 132) / 8; i++)
  #elif defined(OLED_96X96) || defined(OLED_128X96) || defined(OLED_128X128)|| defined(OLED_128X64_ON_96X96) || defined(OLED_128X64_ON_128X96) || defined(OLED_128X64_ON_128X128)|| defined(OLED_128X96_ON_128X128) || defined(OLED_96X96_ON_128X128) || defined(OLED_64X128_ON_128X128)
@@ -1043,7 +1043,7 @@ void Arduboy2Core::sendLCDCommand(uint8_t command)
   i2c_start(SSD1306_I2C_CMD);
   i2c_sendByte(command);
   i2c_stop();
-#elif !defined GU12864_800B 
+#elif !defined GU12864_800B
   LCDCommandMode();
   SPItransfer(command);
   LCDDataMode();
@@ -1072,25 +1072,25 @@ void Arduboy2Core::allPixelsOn(bool on)
 {
  #if defined(GU12864_800B)
   displayEnable();
-  if (on) 
+  if (on)
   {
     displayWrite(0x20);
     displayWrite(0x50);
   }
-  else 
+  else
     displayWrite(0x24);
     displayWrite(0x40);
   LCDDataMode();
   displayDisable();
  #else
   sendLCDCommand(on ? OLED_ALL_PIXELS_ON : OLED_PIXELS_FROM_RAM);
- #endif  
+ #endif
 }
 
 // flip the display vertically or set to normal
 void Arduboy2Core::flipVertical(bool flipped)
 {
- #ifdef GU12864_800B 
+ #ifdef GU12864_800B
   //not available
  #else
   sendLCDCommand(flipped ? OLED_VERTICAL_FLIPPED : OLED_VERTICAL_NORMAL);
@@ -1100,7 +1100,7 @@ void Arduboy2Core::flipVertical(bool flipped)
 // flip the display horizontally or set to normal
 void Arduboy2Core::flipHorizontal(bool flipped)
 {
- #ifdef GU12864_800B 
+ #ifdef GU12864_800B
   //not available
  #else
   sendLCDCommand(flipped ? OLED_HORIZ_FLIPPED : OLED_HORIZ_NORMAL);
@@ -1112,7 +1112,7 @@ void Arduboy2Core::flipHorizontal(bool flipped)
 void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
 {
 #ifdef LCD_ST7565
-  if ((red | green | blue) == 0) //prevent backlight off 
+  if ((red | green | blue) == 0) //prevent backlight off
   {
     red   = 255;
     green = 255;
@@ -1123,22 +1123,22 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
   uint8_t pwmstate = TCCR0A;
  #ifndef AB_ALTERNATE_WIRING
   pwmstate &= ~_BV(COM0A1); //default to digital pin for min and max values
- #else  
+ #else
   pwmstate &= ~_BV(COM0B1);
  #endif
   if (green == 0)
    #if defined(LCD_ST7565)
-    bitClear(GREEN_LED_PORT, GREEN_LED_BIT); 
+    bitClear(GREEN_LED_PORT, GREEN_LED_BIT);
    #else
-    bitSet(GREEN_LED_PORT, GREEN_LED_BIT); 
+    bitSet(GREEN_LED_PORT, GREEN_LED_BIT);
    #endif
   else if (green == 255)
    #if defined(LCD_ST7565)
-    bitSet(GREEN_LED_PORT, GREEN_LED_BIT); 
+    bitSet(GREEN_LED_PORT, GREEN_LED_BIT);
    #else
     bitClear(GREEN_LED_PORT, GREEN_LED_BIT);
    #endif
-  else 
+  else
   {
    #ifndef AB_ALTERNATE_WIRING
     pwmstate |= _BV(COM0A1); //configure pin as pwm pin
@@ -1149,7 +1149,7 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
     #endif
    #else
 	pwmstate |= _BV(COM0B1);
-	OCR0B = 255 - green;            
+	OCR0B = 255 - green;
    #endif
   }
   TCCR0A = pwmstate;
@@ -1179,8 +1179,8 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
    #else
     OCR1BL = 255 - red;      //set pwm duty
    #endif
-  } 
-  if (blue == 0) 
+  }
+  if (blue == 0)
   {
    #if defined(LCD_ST7565)
     bitClear(BLUE_LED_PORT, BLUE_LED_BIT);
@@ -1188,7 +1188,7 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
     bitSet(BLUE_LED_PORT, BLUE_LED_BIT);
    #endif
   }
-  else if (blue == 255) 
+  else if (blue == 255)
   {
    #if defined(LCD_ST7565)
     bitSet(BLUE_LED_PORT, BLUE_LED_BIT);
@@ -1205,7 +1205,7 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
    #else
     OCR1AL = 255 - blue;     //set pwm duty
    #endif
-  } 
+  }
   TCCR1A = pwmstate;
 #elif defined(AB_DEVKIT)
   // only blue on DevKit, which is not PWM capable
@@ -1232,9 +1232,9 @@ void Arduboy2Core::setRGBled(uint8_t color, uint8_t val)
     OCR0A = 255 - val;
    #else
     #ifdef LCD_ST7565
-	OCR0B = val;            
+	OCR0B = val;
     #else
-	OCR0B = 255 - val;            
+	OCR0B = 255 - val;
     #endif
    #endif
   }
@@ -1267,7 +1267,7 @@ void Arduboy2Core::freeRGBled()
 void Arduboy2Core::digitalWriteRGB(uint8_t red, uint8_t green, uint8_t blue)
 {
 #ifdef LCD_ST7565
-  if ((red & green & blue) == RGB_OFF) //prevent backlight off 
+  if ((red & green & blue) == RGB_OFF) //prevent backlight off
   {
     red   = RGB_ON;
     green = RGB_ON;
@@ -1380,7 +1380,7 @@ void Arduboy2Core::exitToBootloader()
 {
   cli();
  #ifdef ARDUBOY_CORE
-  asm volatile 
+  asm volatile
   (
     "jmp exit_to_bootloader \n" // resuse ISR exit to bootloader code
   );
@@ -1457,4 +1457,3 @@ void Arduboy2NoUSB::mainNoUSB()
 
 //  return 0;
 }
-

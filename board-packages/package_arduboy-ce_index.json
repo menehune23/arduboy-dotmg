@@ -18,14 +18,14 @@
                         }
                     ],
                     "category": "Contributed",
-                    "checksum": "SHA-256:c2633463b9f52ccb595a1613929adefbacc10c1d94e463980e4e65c3bed808c5",
+                    "checksum": "SHA-256:97a255695f8fc16ba7d50b573cc4d4467a4f7993b46537b4469f2dad3f4ba68e",
                     "help": {
                         "online": "http://community.arduboy.com/"
                     },
                     "name": "Arduboy CE",
-                    "size": "740290",
+                    "size": "740302",
                     "toolsDependencies": [],
-                    "url": "file:///Users/andrewmeyer/workspace/arduboy-ce/board-packages/arduboy-ce-0.0.0.tar.gz",
+                    "url": "https://raw.githubusercontent.com/menehune23/arduboy-ce/master/arduboy-ce-0.0.0.tar.gz",
                     "version": "0.0.0"
                 }
             ],

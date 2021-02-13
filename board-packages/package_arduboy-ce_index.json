@@ -1,0 +1,36 @@
+{
+    "packages": [
+        {
+            "email": "andrewm1100+arduboyce@gmail.com",
+            "help": {
+                "online": "http://community.arduboy.com/",
+                "string": "community help"
+            },
+            "maintainer": "Andrew Meyer",
+            "name": "arduboy-ce",
+            "platforms": [
+                {
+                    "architecture": "avr",
+                    "archiveFileName": "arduboy-ce-0.0.0.tar.gz",
+                    "boards": [
+                        {
+                            "name": "Arduboy CE"
+                        }
+                    ],
+                    "category": "Contributed",
+                    "checksum": "SHA-256:c2633463b9f52ccb595a1613929adefbacc10c1d94e463980e4e65c3bed808c5",
+                    "help": {
+                        "online": "http://community.arduboy.com/"
+                    },
+                    "name": "Arduboy CE",
+                    "size": "740290",
+                    "toolsDependencies": [],
+                    "url": "file:///Users/andrewmeyer/workspace/arduboy-ce/board-packages/arduboy-ce-0.0.0.tar.gz",
+                    "version": "0.0.0"
+                }
+            ],
+            "tools": [],
+            "websiteURL": "https://github.com/menehune23/arduboy-ce"
+        }
+    ]
+}

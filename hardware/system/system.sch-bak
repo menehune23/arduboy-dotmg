@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "Arduboy CE"
 Date "2021-02-12"
-Rev "1.0-dev2"
+Rev "1.0-dev3"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -574,20 +574,9 @@ Text GLabel 6550 4250 3    39   Input ~ 0
 D9_A9
 Wire Wire Line
 	6550 4100 6550 4250
-Wire Wire Line
-	4700 3350 5150 3350
-Wire Wire Line
-	5150 4850 5150 3350
 NoConn ~ 3750 4150
 Wire Wire Line
 	4200 3650 4700 3650
-Connection ~ 5150 3350
-Wire Wire Line
-	5150 3350 5850 3350
-Text GLabel 5550 4250 3    39   Input ~ 0
-D0
-Wire Wire Line
-	5550 4100 5550 4250
 Text GLabel 8650 3650 3    39   Input ~ 0
 D0
 Wire Wire Line
@@ -610,4 +599,12 @@ $EndComp
 Wire Wire Line
 	4250 4350 3750 4350
 Connection ~ 3750 4350
+Wire Wire Line
+	4700 3350 5850 3350
+Wire Wire Line
+	5150 4850 5150 4950
+Wire Wire Line
+	5150 4950 5550 4950
+Wire Wire Line
+	5550 4100 5550 4950
 $EndSCHEMATC

@@ -520,7 +520,7 @@ SCL
 Text GLabel 6750 3450 1    39   Input ~ 0
 D10_A10
 $Comp
-L Connector:Conn_01x12_Female J2
+L Connector:Conn_01x11_Female J2
 U 1 1 6029D390
 P 8250 3450
 F 0 "J2" V 8415 3380 50  0000 C CNN
@@ -566,30 +566,17 @@ Text GLabel 8450 3650 3    39   Input ~ 0
 MOSI
 Text GLabel 8550 3650 3    39   Input ~ 0
 SCK
-Text GLabel 8850 3650 3    39   Input ~ 0
-D10_A10
 Text GLabel 8750 3650 3    39   Input ~ 0
+D10_A10
+Text GLabel 8650 3650 3    39   Input ~ 0
 D9_A9
 Text GLabel 6550 4250 3    39   Input ~ 0
 D9_A9
 Wire Wire Line
 	6550 4100 6550 4250
-Wire Wire Line
-	4700 3350 5150 3350
-Wire Wire Line
-	5150 4850 5150 3350
 NoConn ~ 3750 4150
 Wire Wire Line
 	4200 3650 4700 3650
-Connection ~ 5150 3350
-Wire Wire Line
-	5150 3350 5850 3350
-Text GLabel 5550 4250 3    39   Input ~ 0
-D0
-Wire Wire Line
-	5550 4100 5550 4250
-Text GLabel 8650 3650 3    39   Input ~ 0
-D0
 Wire Wire Line
 	3750 4350 3750 5200
 Text GLabel 7850 3650 3    39   Input ~ 0
@@ -610,4 +597,12 @@ $EndComp
 Wire Wire Line
 	4250 4350 3750 4350
 Connection ~ 3750 4350
+Wire Wire Line
+	4700 3350 5850 3350
+Wire Wire Line
+	5150 4850 5150 4950
+Wire Wire Line
+	5150 4950 5550 4950
+Wire Wire Line
+	5550 4100 5550 4950
 $EndSCHEMATC

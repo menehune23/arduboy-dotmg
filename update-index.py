@@ -37,7 +37,7 @@ def find_version(platform_path):
 src_path = 'board-package-source'
 platform_path = os.path.join(src_path, 'platform.txt')
 version = find_version(platform_path)
-base_url = sys.argv[1] if len(sys.argv) > 1 else 'https://raw.githubusercontent.com/menehune23/arduboy-ce/master'
+base_url = sys.argv[1] if len(sys.argv) > 1 else 'https://raw.githubusercontent.com/menehune23/arduboy-ce/main/board-packages'
 tar_name = 'arduboy-ce-' + version + '.tar.gz'
 tar_path = os.path.join('board-packages', tar_name)
 

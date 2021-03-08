@@ -15,16 +15,16 @@ U2,3.3V regulator,IC REG LINEAR 3.3V 250MA TO92-3,Microchip Technology,MCP1700-3
 U3,Screen,"2.42"" OLED DISPLAY",DIY More,030526LV,,1, $ 20.99 , $ 20.99 ,https://www.diymore.cc/products/2-42-inch-12864-oled-display-module-iic-i2c-spi-serial-for-arduino-c51-stm32-green-white-blue-yellow,Should come with 7-pin header
 ,A/B button caps,CAP TACTILE ROUND BLACK,Omron Electronics Inc.,B32-2010,SW1139-ND,2, $ 0.76 , $ 1.52 ,https://www.digikey.com/products/en?keywords=SW1139-ND,
 ,D-pad button caps,KEY CAP BLACK,Omron Electronics Inc.,B32-2110,Z8523-ND,4, $ 0.92 , $ 3.68 ,https://www.digikey.com/products/en?keywords=Z8523-ND,
-,Microcontroller,ARDUINO PRO MICRO 5V 16MHZ,Amazon,,,1, $ 7.33 , $ 7.33 ,https://www.amazon.com/KeeYees-ATmega32U4-Development-Microcontroller-Bootloader/dp/B07FXCTVQP,1 needed per game cart
+,Microcontroller,ARDUINO PRO MICRO 5V 16MHZ,Amazon,,,1, $ 7.33 , $ 7.33 ,https://www.amazon.com/KeeYees-ATmega32U4-Development-Microcontroller-Bootloader/dp/B07FXCTVQP,"1 needed per game cart, should come with headers"
 ,Rechargeable battery,500 MAH RECHARGEABLE LIPO,Adafruit Industries Inc.,1578,,1, $ 7.95 , $ 7.95 ,https://www.adafruit.com/product/1578,
 ,Charger board header,1X4 STRAIGHT MALE HEADER,Adafruit Industries Inc.,392,,1, $ 0.06 , $ 0.06 ,https://www.adafruit.com/product/392,1 needed per game cart
-,Battery mounting tape,"3M 1"" FOAM MOUNTING SQUARE",Amazon,,,1, $ 0.12 , $ 0.12 ,https://www.amazon.com/Scotch-Mounting-Squares-24-Squares-111-24/dp/B002VLJU52,$2.99 for 24-pack
-,Front shell standoffs,M2.5 FEMALE-FEMALE NYLON STANDOFF,,,,4, $ 0.10 , $ 0.40 ,,"Good combo option from Adafruit
+,Battery mounting tape,"1"" FOAM MOUNTING SQUARE",Amazon,,,1, $ 0.12 , $ 0.12 ,https://www.amazon.com/Scotch-Mounting-Squares-24-Squares-111-24/dp/B002VLJU52,$2.99 for 24-pack
+,Front shell standoffs,5MM M2.5 MALE-FEMALE NYLON STANDOFF,,,,4, $ 0.10 , $ 0.40 ,,"Good combo option from Adafruit
 (though screws are NOT countersink):
 https://www.adafruit.com/product/3299
 
 Also easy to find these on AliExpress"
-,Back shell standoffs,M2.5 FEMALE-MALE NYLON STANDOFF,,,,4, $ 0.10 , $ 0.40 ,,
-,Shell screws,M2.5 COUNTERSINK NYLON SCREW,,,,8, $ 0.10 , $ 0.80 ,,
+,Back shell standoffs,8MM M2.5 MALE-MALE NYLON STANDOFF,,,,4, $ 0.10 , $ 0.40 ,,
+,Shell screws,3MM M2.5 COUNTERSINK NYLON SCREW,,,,8, $ 0.10 , $ 0.80 ,,
 ,,,,,,,,,,
 ,,,,,,,TOTAL, $ 63.01 ,,

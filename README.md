@@ -20,10 +20,9 @@ If you've already [built your own Arduboy CE](#build-your-own), you can program 
 
 1. Gather [parts, materials, and tools](#parts-materials-and-tools)
 
-1. Order PCBs:
-   [JLC PCB](jlcpcb.com) works well. Recommended settings:
+1. Order PCBs ([JLC PCB](jlcpcb.com) works well). Recommended settings:
 
-   - **Cart**: 1.0mm thickness (required to fit in slot), ENIG HASL finish, chamfered goldfingers
+   - **Cart**: 1.0mm thickness (required to fit in slot), ENIG HASL finish, chamfered goldfingers (as of this writing, JLC PCB stopped allowing chamfering on a board this small -- no big deal, but ensure goldfingers at least)
 
    - **System**: 1.2mm thickness, ENIG HASL finish
 
@@ -31,21 +30,27 @@ If you've already [built your own Arduboy CE](#build-your-own), you can program 
 
    - Gerber files include a `JLCJLCJLCJLC` text element for specifying the JLC PCB order number location (choose "Specify location" when ordering)
 
-   - In a pinch, regular non-ENIG HASL can be chosen to save money. For the system, it looks better with ENIG (gold color). For the cart, ENIG is required if chamfered goldfingers are desired.
+   - In a pinch, regular non-ENIG HASL can be chosen to save money. For the system, it looks better with ENIG (gold color). For the cart, ENIG is required if goldfingers are selected when ordering.
 
-   - The system board and shell will come as one panel (three boards connected by break-away tabs). Separate the shell boards from the PCB and file down any rough edges (pliers might help break off the tabs too).
+   - The system board and shell will come as one panel (three boards connected by break-away tabs). After receivig them, separate the shell boards from the main PCB and file down any rough edges (pliers might help break off the tabs too).
 
 1. From there, it's a matter of soldering the components to their marked locations on the boards. Here are a few tips:
 
-    - For the game cartridge, the Pro Micro USB port should point to the **left** when the cart is facing you (this should be apparent given the outline on the cart PCB)
+    - For the game cartridge:
 
-    - For the system, the recommended soldering order is:
-        1. Solder the **back components first**
-        1. Trim their leads flush
-        1. Solder front components
-        1. Trim those leads flush
+      - The Pro Micro USB port should point to the **left** when the cart is facing you (this should be apparent given the outline on the cart PCB)
 
-      > The main reason for this is that the screen must be soldered on **LAST**, or you won't be able to solder the cartridge connector or EXT header very easily.
+      - Trim all leads as flush as possible
+
+    - For the system, the recommended soldering order is as follows (trim all leads as flush as possible along the way):
+
+        1. Solder the D-Pad and A/B buttons **first**
+
+        1. Solder the rear components
+           > There's a 4-pin right-angle header that sits under the charger board, purely for mechanical alignment (no electrical function) -- be sure to solder it **before** soldering the charger board
+
+        1. Solder the front components
+           > Solder the display **last**, so you can solder the EXT header underneath it
 
 1. Now, plug in the battery and mount it to the lower back of the system board using a small piece of mounting tape
    > **IMPORTANT!** LiPo batteries can be dangerous if mishandled or punctured, as they can catch fire or explode. Use caution and keep this project out of reach of children unless supervised. [Read more about battery safety here](https://learn.adafruit.com/li-ion-and-lipoly-batteries).
@@ -60,13 +65,13 @@ If you've already [built your own Arduboy CE](#build-your-own), you can program 
 
 1. Attach button caps
 
-1. Assemble the shell using the nylon standoffs and screws. Female-female standoffs should go in front and attach to the female-male standoffs on the back side. The shell front and back can then be mounted to the standoffs with the screws.
+1. Assemble the shell using the nylon standoffs and screws. Male-female standoffs should go in front and attach to the female-female standoffs on the back side. The shell front and back can then be mounted to the standoffs with the screws.
 
     > **Note:**
     >
     > - The shell mounting holes are slightly enlarged to allow for countersink nylon screws to "sink" in a bit
     >
-    > - Depending on the screw and standoff lengths, you may need to trim them with a hobby knife
+    > - Depending on the screw and standoff lengths, you may need to trim them with a hobby knife to match the lengths in the [BOM](#parts)
 
 ## Parts, Materials, and Tools
 

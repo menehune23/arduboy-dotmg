@@ -50,7 +50,11 @@ If you've already [built your own Arduboy CE](#build-your-own), you can program 
            > There's a 4-pin right-angle header that sits under the charger board, purely for mechanical alignment (no electrical function) -- be sure to solder it **before** soldering the charger board
 
         1. Solder the front components
-           > Solder the display **last**, so you can solder the EXT header underneath it
+           > **IMPORTANT:**
+           >
+           > - Solder the display **last**, so you can solder the EXT header underneath it
+           >
+           > - Diodes are **polarized**! Ensure the band on the diode body lines up with the image on the PCB.
 
 1. Now, plug in the battery and mount it to the lower back of the system board using a small piece of mounting tape
    > **IMPORTANT!** LiPo batteries can be dangerous if mishandled or punctured, as they can catch fire or explode. Use caution and keep this project out of reach of children unless supervised. [Read more about battery safety here](https://learn.adafruit.com/li-ion-and-lipoly-batteries).

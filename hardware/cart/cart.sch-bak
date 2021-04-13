@@ -5,8 +5,8 @@ $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Arduboy CE Cart"
-Date "2021-03-04"
-Rev "1.0-dev1"
+Date "2021-03-08"
+Rev "1.0-dev2"
 Comp ""
 Comment1 ""
 Comment2 ""

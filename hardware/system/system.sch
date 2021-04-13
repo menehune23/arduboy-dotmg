@@ -5,8 +5,8 @@ $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Arduboy CE"
-Date "2021-03-04"
-Rev "1.0-dev4"
+Date "2021-04-12"
+Rev "1.0-dev5"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -360,7 +360,7 @@ U 1 1 60157AE7
 P 3050 4550
 F 0 "D2" V 3000 4650 50  0000 L CNN
 F 1 "SB120" V 3100 4650 50  0000 L CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" V 3050 4550 50  0001 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal" V 3050 4550 50  0001 C CNN
 F 3 "~" V 3050 4550 50  0001 C CNN
 	1    3050 4550
 	0    1    1    0   
@@ -384,7 +384,7 @@ U 1 1 6015EF69
 P 2350 4550
 F 0 "D1" V 2300 4750 50  0000 R CNN
 F 1 "SB120" V 2400 4900 50  0000 R CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" V 2350 4550 50  0001 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal" V 2350 4550 50  0001 C CNN
 F 3 "~" V 2350 4550 50  0001 C CNN
 	1    2350 4550
 	0    -1   1    0   

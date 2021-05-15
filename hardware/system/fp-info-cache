@@ -1,4 +1,4 @@
-18629757974549848
+18636285778002848
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -80976,12 +80976,33 @@ DIYMORE_2.42_IN_OLED_CUTOUT
 0
 0
 system
+DIYMORE_2.42_IN_OLED_CUTOUT_ADV
+
+
+0
+0
+0
+system
 EXT_PINS
 Through hole straight pin header, 1x04, 2.54mm pitch, single row
 Through hole pin header THT 1x04 2.54mm single row
 0
 10
 10
+system
+EXT_PINS_ADV
+Through hole straight pin header, 1x04, 2.54mm pitch, single row
+Through hole pin header THT 1x04 2.54mm single row
+0
+10
+10
+system
+EXT_PINS_ADV_CUTOUT
+Through hole straight pin header, 1x04, 2.54mm pitch, single row
+Through hole pin header THT 1x04 2.54mm single row
+0
+0
+0
 system
 LOGO
 
@@ -81026,6 +81047,13 @@ OMRON_CAP_B32-2110_CUTOUT
 0
 system
 SPDT_SWITCH
+
+
+0
+3
+3
+system
+SPDT_SWITCH_ADV
 
 
 0

@@ -5,7 +5,7 @@ $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Arduboy CE"
-Date "2021-04-12"
+Date "2021-06-07"
 Rev "1.0-dev5"
 Comp ""
 Comment1 ""
@@ -333,17 +333,6 @@ F 3 "" H 4050 3250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Regulator_Linear:MCP1700-3302E_TO92 U2
-U 1 1 60150B9F
-P 4050 5200
-F 0 "U2" H 4050 4958 50  0000 C CNN
-F 1 "MCP1700-3302E" H 4100 5050 50  0000 C CNN
-F 2 "system:TO-92" H 4050 5000 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001826D.pdf" H 4050 5200 50  0001 C CNN
-	1    4050 5200
-	1    0    0    1   
-$EndComp
-$Comp
 L system:LIPO_CHARGER U1
 U 1 1 601553BA
 P 2700 5100
@@ -406,54 +395,16 @@ Wire Wire Line
 	7500 4950 7500 4550
 Connection ~ 7500 4950
 $Comp
-L system:SPI_DISPLAY U3
+L system:SPI_DISPLAY U2
 U 1 1 60191D78
 P 5050 4650
-F 0 "U3" H 5100 4900 50  0000 R CNN
+F 0 "U2" H 5100 4900 50  0000 R CNN
 F 1 "SPI_DISPLAY" H 5250 4800 39  0000 R CNN
 F 2 "system:DIYMORE_2.42_IN_OLED" H 5100 4550 30  0001 C CNN
 F 3 "" H 5100 4550 30  0001 C CNN
 	1    5050 4650
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR0108
-U 1 1 6019D0B9
-P 4050 5500
-F 0 "#PWR0108" H 4050 5250 50  0001 C CNN
-F 1 "GND" H 4055 5327 50  0000 C CNN
-F 2 "" H 4050 5500 50  0001 C CNN
-F 3 "" H 4050 5500 50  0001 C CNN
-	1    4050 5500
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C1
-U 1 1 601A4D86
-P 3750 5350
-F 0 "C1" H 3850 5400 50  0000 L CNN
-F 1 "1uF" H 3850 5300 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.0mm_W2.5mm_P2.50mm" H 3750 5350 50  0001 C CNN
-F 3 "~" H 3750 5350 50  0001 C CNN
-	1    3750 5350
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C2
-U 1 1 601AE8F3
-P 4350 5350
-F 0 "C2" H 4550 5400 50  0000 R CNN
-F 1 "1uF" H 4600 5300 50  0000 R CNN
-F 2 "Capacitor_THT:C_Rect_L4.0mm_W2.5mm_P2.50mm" H 4350 5350 50  0001 C CNN
-F 3 "~" H 4350 5350 50  0001 C CNN
-	1    4350 5350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3750 5500 4050 5500
-Connection ~ 4050 5500
-Wire Wire Line
-	4050 5500 4350 5500
 $Comp
 L power:GND #PWR0109
 U 1 1 601CCE78
@@ -465,18 +416,6 @@ F 3 "" H 4750 4850 50  0001 C CNN
 	1    4750 4850
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	4350 5200 4850 5200
-Wire Wire Line
-	3750 5450 3750 5500
-Wire Wire Line
-	4350 5500 4350 5450
-Wire Wire Line
-	4350 5250 4350 5200
-Connection ~ 4350 5200
-Wire Wire Line
-	3750 5250 3750 5200
-Connection ~ 3750 5200
 Wire Wire Line
 	4850 5200 4850 4850
 Wire Wire Line
@@ -520,14 +459,14 @@ SCL
 Text GLabel 6750 3450 1    39   Input ~ 0
 D10_A10
 $Comp
-L Connector:Conn_01x11_Female J2
+L Connector:Conn_01x10_Female J2
 U 1 1 6029D390
-P 8250 3450
-F 0 "J2" V 8415 3380 50  0000 C CNN
-F 1 "EXT_PINS" V 8324 3380 50  0000 C CNN
-F 2 "system:EXT_PINS" H 8250 3450 50  0001 C CNN
-F 3 "~" H 8250 3450 50  0001 C CNN
-	1    8250 3450
+P 8150 3450
+F 0 "J2" V 8315 3380 50  0000 C CNN
+F 1 "EXT_PINS" V 8224 3380 50  0000 C CNN
+F 2 "system:EXT_PINS" H 8150 3450 50  0001 C CNN
+F 3 "~" H 8150 3450 50  0001 C CNN
+	1    8150 3450
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -552,23 +491,19 @@ F 3 "" H 7950 3650 50  0001 C CNN
 	1    7950 3650
 	1    0    0    1   
 $EndComp
-Text GLabel 4850 5200 2    39   Input ~ 0
-3V3
 Text GLabel 8050 3650 3    39   Input ~ 0
-3V3
-Text GLabel 8150 3650 3    39   Input ~ 0
 SDA
-Text GLabel 8250 3650 3    39   Input ~ 0
+Text GLabel 8150 3650 3    39   Input ~ 0
 SCL
-Text GLabel 8350 3650 3    39   Input ~ 0
+Text GLabel 8250 3650 3    39   Input ~ 0
 MISO
-Text GLabel 8450 3650 3    39   Input ~ 0
+Text GLabel 8350 3650 3    39   Input ~ 0
 MOSI
-Text GLabel 8550 3650 3    39   Input ~ 0
+Text GLabel 8450 3650 3    39   Input ~ 0
 SCK
-Text GLabel 8750 3650 3    39   Input ~ 0
-D10_A10
 Text GLabel 8650 3650 3    39   Input ~ 0
+D10_A10
+Text GLabel 8550 3650 3    39   Input ~ 0
 D9_A9
 Text GLabel 6550 4250 3    39   Input ~ 0
 D9_A9
@@ -577,17 +512,15 @@ Wire Wire Line
 NoConn ~ 3750 4150
 Wire Wire Line
 	4200 3650 4700 3650
-Wire Wire Line
-	3750 4350 3750 5200
 Text GLabel 7850 3650 3    39   Input ~ 0
 RAW
 Text GLabel 5650 3600 1    39   Input ~ 0
 RAW
 $Comp
-L power:VCC #PWR?
+L power:VCC #PWR0107
 U 1 1 6028122A
 P 4250 4350
-F 0 "#PWR?" H 4250 4200 50  0001 C CNN
+F 0 "#PWR0107" H 4250 4200 50  0001 C CNN
 F 1 "VCC" V 4250 4500 50  0000 L CNN
 F 2 "" H 4250 4350 50  0001 C CNN
 F 3 "" H 4250 4350 50  0001 C CNN
@@ -595,8 +528,7 @@ F 3 "" H 4250 4350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4250 4350 3750 4350
-Connection ~ 3750 4350
+	4250 4350 4100 4350
 Wire Wire Line
 	4700 3350 5850 3350
 Wire Wire Line
@@ -605,4 +537,11 @@ Wire Wire Line
 	5150 4950 5550 4950
 Wire Wire Line
 	5550 4100 5550 4950
+Wire Wire Line
+	4850 5200 4100 5200
+Wire Wire Line
+	4100 5200 4100 4350
+Connection ~ 4100 4350
+Wire Wire Line
+	4100 4350 3750 4350
 $EndSCHEMATC

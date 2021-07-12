@@ -77,7 +77,7 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
         1. Solder the D-Pad and A/B buttons **first**
 
         1. Solder the rear components
-           > There's a 4-pin right-angle header that sits under the charger board, purely for mechanical alignment (no electrical function) -- be sure to solder it **before** soldering the charger board
+           > There's a 1-pin right-angle header that sits under the charger board, purely for mechanical alignment (no electrical function) -- be sure to solder it **before** soldering the charger board
 
         1. Solder the front components
            > **IMPORTANT:**

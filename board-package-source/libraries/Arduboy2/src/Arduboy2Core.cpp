@@ -192,7 +192,10 @@ void Arduboy2Core::bootPins()
 {
 #ifdef ARDUBOY_10
   // Port B INPUT_PULLUP or HIGH
-  PORTB = (_BV(RED_LED_BIT) | _BV(BLUE_LED_BIT) | //RGB LED off
+  PORTB = (
+         #ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
+          _BV(RED_LED_BIT) | _BV(BLUE_LED_BIT) | //RGB LED off (pins high)
+         #endif
          #ifndef AB_ALTERNATE_WIRING
           _BV(GREEN_LED_BIT) |
          #endif
@@ -201,22 +204,35 @@ void Arduboy2Core::bootPins()
          #endif
           _BV(B_BUTTON_BIT)) &
   // Port B INPUT or LOW
-          ~(_BV(SPI_MISO_BIT) | _BV(SPI_MOSI_BIT) | _BV(SPI_SCK_BIT));
+          ~(
+           #ifdef AB_DOTMG_PRO_MICRO__NO_RGBLED
+            _BV(RED_LED_BIT) | _BV(BLUE_LED_BIT) | //RGB LED pins low
+           #endif
+            _BV(SPI_MISO_BIT) | _BV(SPI_MOSI_BIT) | _BV(SPI_SCK_BIT)
+           );
 
   // Port B outputs
-  DDRB = (_BV(RED_LED_BIT)   | _BV(BLUE_LED_BIT) |
+  DDRB = (
+        #ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
+          _BV(RED_LED_BIT)   | _BV(BLUE_LED_BIT) |
+        #endif
         #ifndef AB_ALTERNATE_WIRING
          _BV(GREEN_LED_BIT) |
         #endif
          _BV(SPI_MOSI_BIT) | _BV(SPI_SCK_BIT)  | _BV(RX_LED_BIT)) &
   // Port B inputs
-         ~(_BV(B_BUTTON_BIT) | _BV(SPI_MISO_BIT));
+         ~(
+           #ifdef AB_DOTMG_PRO_MICRO__NO_RGBLED
+            _BV(RED_LED_BIT) | _BV(BLUE_LED_BIT) | //Allow pins as input when not used for LEDs
+           #endif
+           _BV(B_BUTTON_BIT) | _BV(SPI_MISO_BIT)
+          );
 
   // Port C
   // Speaker: Not set here. Controlled by audio class
   // Port D INPUT_PULLUP or HIGH
   PORTD = (
-         #if defined(AB_ALTERNATE_WIRING)
+         #if defined(AB_ALTERNATE_WIRING) && !defined(AB_DOTMG_PRO_MICRO__NO_RGBLED)
           _BV(GREEN_LED_BIT) |
          #endif
          #if !(defined(ARDUINO_AVR_MICRO))
@@ -226,7 +242,8 @@ void Arduboy2Core::bootPins()
          #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
           _BV(DC_BIT) |
          #endif
-          0) & ~( // Port D INPUTs or LOW outputs
+          0) &
+      ~( // Port D INPUTs or LOW outputs
          #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
           _BV(CS_BIT) |  // oled display enabled
           _BV(RST_BIT) | // reset active
@@ -241,7 +258,11 @@ void Arduboy2Core::bootPins()
           _BV(I2C_SCL) |
           _BV(I2C_SDA) |
          #endif
-          0);
+         #if defined(AB_DOTMG_PRO_MICRO__NO_RGBLED)
+          _BV(GREEN_LED_BIT) |  // set to low when not used for LEDs
+         #endif
+          0
+       );
 
   // Port D outputs
   DDRD = (
@@ -252,7 +273,7 @@ void Arduboy2Core::bootPins()
          _BV(RST_BIT) |
          _BV(CS_BIT) |
         #endif
-        #if defined(AB_ALTERNATE_WIRING)
+        #if defined(AB_ALTERNATE_WIRING) && !defined(AB_DOTMG_PRO_MICRO__NO_RGBLED)
          _BV(GREEN_LED_BIT) |
         #endif
         #if defined(LCD_ST7565)
@@ -260,12 +281,17 @@ void Arduboy2Core::bootPins()
         #endif
          _BV(CART_BIT) |
          _BV(TX_LED_BIT) |
-         0) & ~(// Port D inputs
+         0) &
+      ~(// Port D inputs
          #if defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX)
           _BV(I2C_SCL) | // SDA and SCL as inputs without pullups
           _BV(I2C_SDA) | // (both externally pulled up)
          #endif
-         0);
+         #if defined(AB_DOTMG_PRO_MICRO__NO_RGBLED)
+          _BV(GREEN_LED_BIT) |  // set to input when not used for LEDs
+         #endif
+         0
+       );
 
   // Port E INPUT_PULLUP or HIGH
   PORTE |= _BV(A_BUTTON_BIT);
@@ -1110,7 +1136,7 @@ void Arduboy2Core::flipHorizontal(bool flipped)
 
 void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
 {
-#ifndef AB_NO_RGBLED
+#ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
 
 #ifdef LCD_ST7565
   if ((red | green | blue) == 0) //prevent backlight off
@@ -1215,12 +1241,12 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
   bitWrite(BLUE_LED_PORT, BLUE_LED_BIT, blue ? RGB_ON : RGB_OFF);
 #endif
 
-#endif // AB_NO_RGBLED
+#endif // AB_DOTMG_PRO_MICRO__NO_RGBLED
 }
 
 void Arduboy2Core::setRGBled(uint8_t color, uint8_t val)
 {
-#ifndef AB_NO_RGBLED
+#ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
 
 #ifdef ARDUBOY_10
   if (color == RED_LED)
@@ -1259,12 +1285,12 @@ void Arduboy2Core::setRGBled(uint8_t color, uint8_t val)
   }
 #endif
 
-#endif // AB_NO_RGBLED
+#endif // AB_DOTMG_PRO_MICRO__NO_RGBLED
 }
 
 void Arduboy2Core::freeRGBled()
 {
-#ifndef AB_NO_RGBLED
+#ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
 
 #ifdef ARDUBOY_10
   // clear the COM bits to return the pins to normal I/O mode
@@ -1272,12 +1298,12 @@ void Arduboy2Core::freeRGBled()
   TCCR1A = _BV(WGM10);
 #endif
 
-#endif // AB_NO_RGBLED
+#endif // AB_DOTMG_PRO_MICRO__NO_RGBLED
 }
 
 void Arduboy2Core::digitalWriteRGB(uint8_t red, uint8_t green, uint8_t blue)
 {
-#ifndef AB_NO_RGBLED
+#ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
 
 #ifdef LCD_ST7565
   if ((red & green & blue) == RGB_OFF) //prevent backlight off
@@ -1302,12 +1328,12 @@ void Arduboy2Core::digitalWriteRGB(uint8_t red, uint8_t green, uint8_t blue)
  #endif
 #endif
 
-#endif // AB_NO_RGBLED
+#endif // AB_DOTMG_PRO_MICRO__NO_RGBLED
 }
 
 void Arduboy2Core::digitalWriteRGB(uint8_t color, uint8_t val)
 {
-#ifndef AB_NO_RGBLED
+#ifndef AB_DOTMG_PRO_MICRO__NO_RGBLED
 
 #ifdef ARDUBOY_10
   if (color == RED_LED)
@@ -1330,7 +1356,7 @@ void Arduboy2Core::digitalWriteRGB(uint8_t color, uint8_t val)
   }
 #endif
 
-#endif // AB_NO_RGBLED
+#endif // AB_DOTMG_PRO_MICRO__NO_RGBLED
 }
 
 /* Buttons */

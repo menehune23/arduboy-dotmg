@@ -1,20 +1,50 @@
-# Arduboy CE
+<img src="assets/logo.png" width="300px">
 
-A DIY cartridge-based Arduboy clone!
+dotMG is a
+
+```// DIY```
+
+```// Arduboy-compatible```
+
+```// cartridge-based```
+
+game console!
+
+_(formerly named Arduboy CE)_
+
+<img src="assets/dotmg.png" width="500px">
+<img src="assets/system_front.png" width="500px">
+<img src="assets/system_back.png" width="500px">
+<img src="assets/cart_front.png" width="250px">
+<img src="assets/cart_back.png" width="250px">
+
+Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Designed to be reminiscent of the original DMG Game Boy, dotMG combines game cartridges with Arduboy greatness!
+
+## Features
+
+- Swappable game cartridges based on the Arduino Pro Micro (including reverse cart protection)
+
+- Extensibility via EXT header (exposes SPI/I2C/GPIO pins) -- add your own crank, accelerometer, joystick, flash chip, RGB LED, or any other add-on of your own creation!
+
+- Rechargeable battery (with play 'n charge capability via load-sharing circuitry)
+
+- Analog volume control
+
+- Large 2.44" 128x64 OLED display
 
 ## Programming
 
-If you've already [built your own Arduboy CE](#build-your-own), you can program game cartridges using the Arduino IDE and the custom board package found in this repo. To get going, follow these steps:
+If you've already [built your own dotMG](#build-your-own), you can program game cartridges using the Arduino IDE and the custom board package found in this repo. To get going, follow these steps:
 
-1. Add `https://raw.githubusercontent.com/menehune23/arduboy-ce/main/board-packages/package_arduboy-ce_index.json` to board manager URLs in the Arduino IDE (found in settings)
+1. Add `https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/board-packages/package_dotmg_index.json` to board manager URLs in the Arduino IDE (found in settings)
 
-1. Open the board manager from the Arduino IDE `Tools` menu, then search for "Arduboy CE" and install
+1. Open the board manager from the Arduino IDE `Tools` menu, then search for "dotMG" and install
 
-1. Connect the game cartridge to your computer using a micro-USB cable, then select the `Arduboy CE` board from the `Tools` menu
+1. Connect the game cartridge to your computer using a micro-USB cable, then select the `dotMG (Pro Micro)` board from the `Tools` menu
 
 1. If a USB port was not selected for you, select one and program your favorite game or example onto your game cartridge!
 
-> **Note:** The Arduboy CE board package already contains its own versions of Arduboy libraries (`Arduboy`, `Arduboy2`, `ArduboyTones`, `ATMlib`, etc.). To avoid confusing compiler errors, you must **uninstall these libraries** if you've previously installed them. (To program an official Arduboy, you'll need to reinstall them or use the [Homemade Arduboy Package](https://github.com/MrBlinky/Arduboy-homemade-package) and select a standard Arduboy from that package's boards -- similar functionality will be added to this project soon.)
+> **Note:** The dotMG board package already contains its own versions of Arduboy libraries (`Arduboy`, `Arduboy2`, `ArduboyTones`, `ATMlib`, etc.). To avoid confusing compiler errors, you must **uninstall these libraries** if you've previously installed them. (To program an official Arduboy, you'll need to reinstall them or use the [Homemade Arduboy Package](https://github.com/MrBlinky/Arduboy-homemade-package) and select a standard Arduboy from that package's boards.)
 
 ## Build Your Own!
 

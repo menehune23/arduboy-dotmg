@@ -191,9 +191,6 @@ void Arduboy2Core::setCPUSpeed8MHz()
 void Arduboy2Core::bootPins()
 {
 #ifdef ARDUBOY_10
-#ifdef AB_DOTMG
-
-#else
   // Port B INPUT_PULLUP or HIGH
   PORTB = (_BV(RED_LED_BIT) | _BV(BLUE_LED_BIT) | //RGB LED off
          #ifndef AB_ALTERNATE_WIRING
@@ -251,7 +248,7 @@ void Arduboy2Core::bootPins()
         #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
          _BV(DC_BIT) |
         #endif
-        #if defined(AB_DOTMG) || !(defined(AB_ALTERNATE_WIRING) && (CART_CS_SDA))
+        #if defined(AB_DOTMG_PRO_MICRO) || !(defined(AB_ALTERNATE_WIRING) && (CART_CS_SDA))
          _BV(RST_BIT) |
          _BV(CS_BIT) |
         #endif
@@ -269,7 +266,6 @@ void Arduboy2Core::bootPins()
           _BV(I2C_SDA) | // (both externally pulled up)
          #endif
          0);
-#endif
 
   // Port E INPUT_PULLUP or HIGH
   PORTE |= _BV(A_BUTTON_BIT);
@@ -362,7 +358,7 @@ void Arduboy2Core::bootOLED()
   uint8_t cmd;
   const uint8_t* ptr = lcdBootProgram;
   delayByte(5);                          //for a short active low reset pulse
- #if defined(AB_DOTMG) || !(defined(AB_ALTERNATE_WIRING) && defined(CART_CS_SDA))
+ #if defined(AB_DOTMG_PRO_MICRO) || !(defined(AB_ALTERNATE_WIRING) && defined(CART_CS_SDA))
   bitSet(RST_PORT, RST_BIT);             //deactivate reset
  #endif
   delayByte(5);

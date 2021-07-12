@@ -38,20 +38,22 @@ extern volatile unsigned char bootloader_timer;
 // ----- Arduboy pins -----
 #ifdef ARDUBOY_10
 
-#ifdef AB_ALTERNATE_WIRING
+#ifdef AB_DOTMG_PRO_MICRO
+  #define PIN_CS 1
+  #define CS_PORT PORTD
+  #define CS_BIT PORTD3
+
+  #define PIN_RST 0
+  #define RST_PORT PORTD
+  #define RST_BIT PORTD2
+#elif defined(AB_ALTERNATE_WIRING)
   #define PIN_CS 1        // Pro Micro alternative display CS pin (pin 12 not not available)
   #define CS_PORT PORTD
   #define CS_BIT PORTD3
 
-  #ifdef AB_DOTMG
-    #define PIN_RST 0       // dotMG display RST pin
-    #define RST_PORT PORTD
-    #define RST_BIT PORTD2
-  #else
-    #define PIN_RST 2       // Pro Micro alternative display RST pin (pin 6 favoured for 2nd speaker pin)
-    #define RST_PORT PORTD
-    #define RST_BIT PORTD1
-  #endif
+  #define PIN_RST 2       // Pro Micro alternative display RST pin (pin 6 favoured for 2nd speaker pin)
+  #define RST_PORT PORTD
+  #define RST_BIT PORTD1
 #else
   #define PIN_CS 12       // Display CS Arduino pin number
   #define CS_PORT PORTD   // Display CS port
@@ -67,7 +69,7 @@ extern volatile unsigned char bootloader_timer;
  #define DC_BIT PORTD4   // Display D/C physical bit number
 
 #ifdef CART_CS_SDA
- #if !defined(AB_DOTMG) && defined(AB_ALTERNATE_WIRING)
+ #if !defined(AB_DOTMG_PRO_MICRO) && defined(AB_ALTERNATE_WIRING)
   #error SDA can not be used as flash chip select when using Pro Micro alternate wiring. Use RX instead.
  #endif
  #define PIN_CART 2        // SDA as alternative flash cart chip select

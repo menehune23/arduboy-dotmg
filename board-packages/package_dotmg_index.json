@@ -27,6 +27,25 @@
                     "toolsDependencies": [],
                     "url": "https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/board-packages/dotmg-0.0.1.tar.gz",
                     "version": "0.0.1"
+                },
+                {
+                    "architecture": "avr",
+                    "archiveFileName": "dotmg-0.0.2.tar.gz",
+                    "boards": [
+                        {
+                            "name": "dotMG (Pro Micro)"
+                        }
+                    ],
+                    "category": "Contributed",
+                    "checksum": "SHA-256:3cfcaf1ae18503740032c4329f7b67a5f13f9188f474c990ddd8b10e32d4135a",
+                    "help": {
+                        "online": "http://community.arduboy.com/"
+                    },
+                    "name": "dotMG",
+                    "size": "753977",
+                    "toolsDependencies": [],
+                    "url": "https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/board-packages/dotmg-0.0.2.tar.gz",
+                    "version": "0.0.2"
                 }
             ],
             "tools": [],

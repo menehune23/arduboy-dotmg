@@ -43,7 +43,7 @@ dotmg-pro-micro.build.vid=0x2341
 dotmg-pro-micro.build.pid=0x8036
 dotmg-pro-micro.build.variant=arduboy-promicro-alt
 dotmg-pro-micro.build.usb_product="ABA1309"
-dotmg-pro-micro.build.board=AVR_PROMICRO -DAB_ALTERNATE_WIRING -DAB_DOTMG
+dotmg-pro-micro.build.board=AVR_PROMICRO -DAB_ALTERNATE_WIRING -DAB_DOTMG_PRO_MICRO
 dotmg-pro-micro.build.extra_flags=-DARDUBOY_10 -DOLED_SSD1309 {build.flash_cs} {build.display.flags} {rgbled_flag} {build.usb_flags}
 
 # Display #

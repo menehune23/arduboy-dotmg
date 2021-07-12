@@ -1110,6 +1110,8 @@ void Arduboy2Core::flipHorizontal(bool flipped)
 
 void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
 {
+#ifndef AB_NO_RGBLED
+
 #ifdef LCD_ST7565
   if ((red | green | blue) == 0) //prevent backlight off
   {
@@ -1212,10 +1214,14 @@ void Arduboy2Core::setRGBled(uint8_t red, uint8_t green, uint8_t blue)
   (void)green;  // parameter unused
   bitWrite(BLUE_LED_PORT, BLUE_LED_BIT, blue ? RGB_ON : RGB_OFF);
 #endif
+
+#endif // AB_NO_RGBLED
 }
 
 void Arduboy2Core::setRGBled(uint8_t color, uint8_t val)
 {
+#ifndef AB_NO_RGBLED
+
 #ifdef ARDUBOY_10
   if (color == RED_LED)
   {
@@ -1252,22 +1258,26 @@ void Arduboy2Core::setRGBled(uint8_t color, uint8_t val)
     bitWrite(BLUE_LED_PORT, BLUE_LED_BIT, val ? RGB_ON : RGB_OFF);
   }
 #endif
+
+#endif // AB_NO_RGBLED
 }
 
 void Arduboy2Core::freeRGBled()
 {
+#ifndef AB_NO_RGBLED
+
 #ifdef ARDUBOY_10
   // clear the COM bits to return the pins to normal I/O mode
   TCCR0A = _BV(WGM01) | _BV(WGM00);
   TCCR1A = _BV(WGM10);
 #endif
+
+#endif // AB_NO_RGBLED
 }
 
 void Arduboy2Core::digitalWriteRGB(uint8_t red, uint8_t green, uint8_t blue)
 {
-#ifdef AB_NO_RGBLED
-  return;
-#endif
+#ifndef AB_NO_RGBLED
 
 #ifdef LCD_ST7565
   if ((red & green & blue) == RGB_OFF) //prevent backlight off
@@ -1291,13 +1301,13 @@ void Arduboy2Core::digitalWriteRGB(uint8_t red, uint8_t green, uint8_t blue)
   bitWrite(BLUE_LED_PORT, BLUE_LED_BIT, blue);
  #endif
 #endif
+
+#endif // AB_NO_RGBLED
 }
 
 void Arduboy2Core::digitalWriteRGB(uint8_t color, uint8_t val)
 {
-#ifdef AB_NO_RGBLED
-  return;
-#endif
+#ifndef AB_NO_RGBLED
 
 #ifdef ARDUBOY_10
   if (color == RED_LED)
@@ -1319,6 +1329,8 @@ void Arduboy2Core::digitalWriteRGB(uint8_t color, uint8_t val)
     bitWrite(BLUE_LED_PORT, BLUE_LED_BIT, val);
   }
 #endif
+
+#endif // AB_NO_RGBLED
 }
 
 /* Buttons */

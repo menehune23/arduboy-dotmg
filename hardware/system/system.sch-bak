@@ -4,8 +4,8 @@ EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title "Arduboy CE"
-Date "2021-04-12"
+Title "dotMG (Pro Micro)"
+Date "2021-07-11"
 Rev "1.0-dev5"
 Comp ""
 Comment1 ""
@@ -517,10 +517,10 @@ RAW
 Text GLabel 5650 3600 1    39   Input ~ 0
 RAW
 $Comp
-L power:VCC #PWR?
+L power:VCC #PWR0107
 U 1 1 6028122A
 P 4250 4350
-F 0 "#PWR?" H 4250 4200 50  0001 C CNN
+F 0 "#PWR0107" H 4250 4200 50  0001 C CNN
 F 1 "VCC" V 4250 4500 50  0000 L CNN
 F 2 "" H 4250 4350 50  0001 C CNN
 F 3 "" H 4250 4350 50  0001 C CNN

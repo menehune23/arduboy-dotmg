@@ -4,9 +4,9 @@ EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title "Arduboy CE"
-Date "2021-06-07"
-Rev "1.0-dev5"
+Title "dotMG (Pro Micro)"
+Date "2021-07-11"
+Rev "1.0-dev6"
 Comp ""
 Comment1 ""
 Comment2 ""

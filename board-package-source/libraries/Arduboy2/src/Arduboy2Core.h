@@ -43,8 +43,8 @@ extern volatile unsigned char bootloader_timer;
   #define CS_PORT PORTD
   #define CS_BIT PORTD3
 
-  #ifdef AB_CE
-    #define PIN_RST 0       // Arduboy CE display RST pin
+  #ifdef AB_DOTMG
+    #define PIN_RST 0       // dotMG display RST pin
     #define RST_PORT PORTD
     #define RST_BIT PORTD2
   #else
@@ -67,7 +67,7 @@ extern volatile unsigned char bootloader_timer;
  #define DC_BIT PORTD4   // Display D/C physical bit number
 
 #ifdef CART_CS_SDA
- #if !defined(AB_CE) && defined(AB_ALTERNATE_WIRING)
+ #if !defined(AB_DOTMG) && defined(AB_ALTERNATE_WIRING)
   #error SDA can not be used as flash chip select when using Pro Micro alternate wiring. Use RX instead.
  #endif
  #define PIN_CART 2        // SDA as alternative flash cart chip select

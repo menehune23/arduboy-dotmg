@@ -11,7 +11,7 @@ import tarfile
 # Note:
 # To test package locally, set base URL to 'file:///<path/to/this/repo/board-packages>'.
 # Then add 'file:///<path/to/this/repo/board-packages/package_arduboy-ce_index.json'
-# to board manager URLs in Arduino IDE. You can then find 'Arduboy CE' in IDE
+# to board manager URLs in Arduino IDE. You can then find 'dotMG (ProMicro)' in IDE
 # board manager.
 #
 # If base URL is left blank, it defaults to point at this project's remote repo.
@@ -37,13 +37,13 @@ def find_version(platform_path):
 src_path = 'board-package-source'
 platform_path = os.path.join(src_path, 'platform.txt')
 version = find_version(platform_path)
-base_url = sys.argv[1] if len(sys.argv) > 1 else 'https://raw.githubusercontent.com/menehune23/arduboy-ce/main/board-packages'
-tar_name = 'arduboy-ce-' + version + '.tar.gz'
+base_url = sys.argv[1] if len(sys.argv) > 1 else 'https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/board-packages'
+tar_name = 'dotmg-' + version + '.tar.gz'
 tar_path = os.path.join('board-packages', tar_name)
 
 digest, size = make_tarfile(tar_path, src_path, version)
 
-with open(os.path.join('board-packages', 'package_arduboy-ce_index.json'), 'r+') as index_file:
+with open(os.path.join('board-packages', 'package_dotmg_index.json'), 'r+') as index_file:
     data = json.load(index_file)
     platform = data['packages'][0]['platforms'][-1].copy()
     platform['version'] = version

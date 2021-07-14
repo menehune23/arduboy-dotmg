@@ -1,4 +1,4 @@
-18631391843545848
+18633018252303848
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -81033,6 +81033,13 @@ OMRON_CAP_B32-2110_CUTOUT
 0
 system
 SPDT_SWITCH
+
+
+0
+3
+3
+system
+SPDT_SWITCH_ADV
 
 
 0

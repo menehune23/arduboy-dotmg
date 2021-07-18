@@ -12,11 +12,15 @@ game console!
 
 _(formerly named Arduboy CE)_
 
+<img src="assets/front_black.png" width="230px">
+<img src="assets/front_white.png" width="230px">
+<img src="assets/advance_front_black.png" width="400px">
+<img src="assets/advance_front_white.png" width="400px">
+<img src="assets/cart_front.png" width="230px">
+<img src="assets/cart_back.png" width="230px">
 <img src="assets/dotmg.png" width="500px">
-<img src="assets/system_front.png" width="500px">
-<img src="assets/system_back.png" width="500px">
-<img src="assets/cart_front.png" width="250px">
-<img src="assets/cart_back.png" width="250px">
+
+> More pictures in the [assets](assets) folder!
 
 Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Designed to be reminiscent of the original DMG Game Boy, dotMG combines game cartridges with Arduboy greatness!
 
@@ -77,12 +81,14 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
         1. Solder the D-Pad and A/B buttons **first**
 
         1. Solder the rear components
-           > There's a 4-pin right-angle header that sits under the charger board, purely for mechanical alignment (no electrical function) -- be sure to solder it **before** soldering the charger board
+           > There's a 1-pin right-angle header that sits under the charger board, purely for mechanical alignment (no electrical function) -- be sure to solder it **before** soldering the charger board
 
         1. Solder the front components
            > **IMPORTANT:**
            >
-           > - Solder the display **last**, so you can solder the EXT header underneath it
+           > - Solder the display **last**
+           >
+           > - For the dotMG Advance, you may need to trim the upper pin on the display before soldering to the system board (so the pin isn't blocked by the charger board)
            >
            > - Diodes are **polarized**! Ensure the band on the diode body lines up with the image on the PCB.
 

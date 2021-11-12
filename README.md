@@ -83,6 +83,8 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
       - The Pro Micro USB port should point to the **left** when the cart is facing you (this should be apparent given the outline on the cart PCB)
 
       - Trim all leads as flush as possible
+      
+      - Break off the small breakaway tab between the 3rd and 4th contacts and stuff it in the system's card connector at the same position (tweezers help here) -- this serves as a mechanical reverse cart protector
 
     - For the system, the recommended soldering order is as follows (trim all leads as flush as possible along the way):
 
@@ -107,7 +109,7 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
    >
    > - Don't use too much mounting tape, or it will be difficult to remove the battery when eventually replacing. A small 0.5"-by-0.5" square will do.
    >
-   > - It's also recommended to **lay down a few strips of PVC tape under where the battery will go**, to keep any poorly-trimmed leads from scratching or puncturing the battery
+   > - Consider laying down a few strips of PVC tape under where the battery will go, to keep any poorly-trimmed leads from scratching or puncturing the battery
    >
    > - By default, the Adafruit battery charger module is configured to charge at 100mA. You can solder a jumper on it to increase this to 500mA, but **only do this if you know what you're doing**, as it should only be used with batteries of capacity 500mAh or more (and preferably 1000mAh to be safe).
 

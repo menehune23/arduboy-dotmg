@@ -14,7 +14,7 @@ U2,Screen,"2.42"" OLED DISPLAY",DIY More,030526LV,,1, $ 20.99 , $ 20.99 ,https:/
 ,A/B button caps,CAP TACTILE ROUND BLACK,Omron Electronics Inc.,B32-2010,SW1139-ND,2, $ 0.76 , $ 1.52 ,https://www.digikey.com/products/en?keywords=SW1139-ND,
 ,D-pad button caps,KEY CAP BLACK,Omron Electronics Inc.,B32-2110,Z8523-ND,4, $ 0.92 , $ 3.68 ,https://www.digikey.com/products/en?keywords=Z8523-ND,
 ,Microcontroller,ARDUINO PRO MICRO 5V 16MHZ,Amazon,,,1, $ 7.33 , $ 7.33 ,https://www.amazon.com/KeeYees-ATmega32U4-Development-Microcontroller-Bootloader/dp/B07FXCTVQP,"1 needed per game cart, should come with headers"
-,Rechargeable battery,500 MAH RECHARGEABLE LIPO,Adafruit Industries Inc.,1578,,1, $ 7.95 , $ 7.95 ,https://www.adafruit.com/product/1578,"Any 3.7V LiPo will do. Recommended capacity 500mAh or more.
+,Rechargeable battery,500 MAH RECHARGEABLE LIPO,Adafruit Industries Inc.,1578,,1, $ 7.95 , $ 7.95 ,https://www.adafruit.com/product/1578,"Any 3.7V LiPo will do. Recommended capacity 500mAh or more. Just be sure the wiring polarity matches the battery in this BOM.
 Longer wire needed for dotMG Advance (about 4.5""). Can be extended by hand or with a JST extender, if needed."
 ,Charger board header,1X4 STRAIGHT MALE HEADER,Adafruit Industries Inc.,392,,1, $ 0.06 , $ 0.06 ,https://www.adafruit.com/product/392,
 ,Charger board support,1X1 RIGHT ANGLE FEMALE HEADER,Adafruit Industries Inc.,1542,,1,$0.03, $ 0.03 ,https://www.adafruit.com/product/1542,Mechanical support only. No electrical function.

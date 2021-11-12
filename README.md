@@ -13,19 +13,12 @@ game console!
 _(formerly named Arduboy CE)_
 
 <p float="left" align="middle">
-   <img src="assets/front_black.png" width="230px">
-   <img src="assets/advance_front_black.png" width="400px">
+   <img src="assets/front_black.png" width="150px">
+   <img src="assets/advance_front_black.png" width="300px">
 </p>
 <p float="left" align="middle">
-   <img src="assets/front_white.png" width="230px">
-   <img src="assets/advance_front_white.png" width="400px">
-</p>
-<p float="left" align="middle">
-   <img src="assets/cart_front.png" width="230px">
-   <img src="assets/cart_back.png" width="230px">
-</p>
-<p align="middle">
-   <img src="assets/dotmg.png" width="500px">
+   <img src="assets/dotmg.png" width="250px">
+   <img src="assets/dotmg_advance.png" width="250px">
 </p>
 
 > More pictures in the [assets](assets) folder!

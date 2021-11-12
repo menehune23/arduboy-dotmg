@@ -12,7 +12,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
     > If your game cartridge is still plugged into the console, be sure to connect to the game cartridge's USB port, **not** the port on the console. It is OK and expected that the console will turn on in this case, regardless of the power switch position (because power is coming through the cartridge directly).
 
-1. If a USB port was not selected for you, select one
+1. If a USB port was not selected for you in the IDE, select one
 
 
 ## Uploading Games & Programs

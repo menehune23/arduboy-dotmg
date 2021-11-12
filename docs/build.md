@@ -1,7 +1,6 @@
 # dotMG Build Guide
 
-Before getting started, be sure you've gathered [parts, materials, and tools](#parts-materials-and-tools)
-
+Before getting started, be sure you've gathered [parts, materials, and tools](#parts-materials-and-tools). Then follow the steps below:
 
 1. The system board and shell will come as one panel (three boards connected by break-away tabs). After receivig them, separate the shell boards from the main PCB and file down any rough edges (pliers might help break off the tabs too).
 

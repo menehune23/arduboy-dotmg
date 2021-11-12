@@ -45,7 +45,7 @@ Before getting started, be sure you've gathered [parts, materials, and tools](#p
     >
     > - By default, the Adafruit battery charger module is configured to charge at 100mA. You can solder a jumper on it to increase this to 500mA, but **only do this if you know what you're doing**, as it should only be used with batteries of capacity 500mAh or more (and preferably 1000mAh to be safe).
     >
-    > - For dotMG Advance, the battery will likely fit best on the left side of the board (when the board is flipped such that the rear side is facing you). This requires the battery wires to be about 4.5" long. You can lay the wires along the "canyon" between the card connector and EXT header pins to keep them out of the way during shell assembly.
+    > - For dotMG Advance, the battery will likely fit best on the left side of the board (when the board is flipped such that the rear side is facing you). This requires the battery wires to be about 4.5" long (as noted in BOM). You can lay the wires along the "canyon" between the card connector and EXT header pins to keep them out of the way during shell assembly.
 
 1. Attach button caps
 

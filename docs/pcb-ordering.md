@@ -26,4 +26,4 @@ Below are the recommended settings for the JLC PCB order page:
 - **Remove order number:** Specify a location (board design contains the required `JLCJLCJLCJLC` text element)
 
 
-> **Note:**: In a pinch, a lead-free HASL finish can be chosen to save money. For the system, it looks better with ENIG (gold color). For the cart, ENIG is required if gold fingers are selected.
+> **Note:** In a pinch, a lead-free HASL finish can be chosen to save money. For the system, it looks better with ENIG (gold color). For the cart, ENIG is required if gold fingers are selected.

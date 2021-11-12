@@ -33,4 +33,4 @@ Below are some recommended places to get game sketches to upload to your cartrid
 - [Team ARG Museum](https://team-arg-museum.github.io)
 - [Erwin's Arduboy Collection](https://arduboy.ried.cl)
 
-> **Note:** If you come across `.hex` files, they're likely compiled for the original Arduboy and are not natively compatible with dotMG. For best results, locate the game's source code and upload using the steps given above.
+> **Note:** If you come across `.hex` files, they're likely compiled for the original Arduboy and are not natively compatible with dotMG. For best results, locate the game's source code, then upload using the steps given above.

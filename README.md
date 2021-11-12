@@ -83,7 +83,7 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
       - The Pro Micro USB port should point to the **left** when the cart is facing you (this should be apparent given the outline on the cart PCB)
 
       - Trim all leads as flush as possible
-      
+
       - Break off the small breakaway tab between the 3rd and 4th contacts and stuff it in the system's card connector at the same position (tweezers help here) -- this serves as a mechanical reverse cart protector
 
     - For the system, the recommended soldering order is as follows (trim all leads as flush as possible along the way):
@@ -98,7 +98,7 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
            >
            > - Solder the display **last**
            >
-           > - For the dotMG Advance, you may need to trim the upper pin on the display before soldering to the system board (so the pin isn't blocked by the charger board)
+           > - For dotMG Advance, you may need to trim the upper pin on the display before soldering to the system board (so the pin isn't blocked by the charger board)
            >
            > - Diodes are **polarized**! Ensure the band on the diode body lines up with the image on the PCB.
 
@@ -112,6 +112,8 @@ If you've already [built your own dotMG](#build-your-own), you can program game 
    > - Consider laying down a few strips of PVC tape under where the battery will go, to keep any poorly-trimmed leads from scratching or puncturing the battery
    >
    > - By default, the Adafruit battery charger module is configured to charge at 100mA. You can solder a jumper on it to increase this to 500mA, but **only do this if you know what you're doing**, as it should only be used with batteries of capacity 500mAh or more (and preferably 1000mAh to be safe).
+   >
+   > - For dotMG Advance, the battery will likely fit best on the left side of the board (when the rear is facing you). This requires the battery wires to be about 4.5" long. You can lay the wires along the "canyon" between the card connector and EXT header pins to keep them out of the way during shell assembly.
 
 1. Attach button caps
 

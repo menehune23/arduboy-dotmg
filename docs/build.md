@@ -63,7 +63,7 @@ Before getting started, be sure you've gathered [parts, materials, and tools](#p
 
 The [BOM can be found here as a PDF](bom.pdf).
 
-See the [PCB Ordering Guide](docs/pcb-ordering.md) if ordering PCBs yourself.
+See the [PCB Ordering Guide](pcb-ordering.md) if ordering PCBs yourself.
 
 Other helpful links:
 

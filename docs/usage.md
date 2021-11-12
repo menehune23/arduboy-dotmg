@@ -2,7 +2,7 @@
 
 ## IDE Setup
 
-If you've already [built your own dotMG](docs/build.md), you can program game cartridges using the Arduino IDE and the custom board package found in this repo. To get going, follow these steps:
+If you've already [built your own dotMG](build.md), you can program game cartridges using the Arduino IDE and the custom board package found in this repo. To get going, follow these steps:
 
 1. Add `https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/board-packages/package_dotmg_index.json` to board manager URLs in the Arduino IDE (found in settings)
 

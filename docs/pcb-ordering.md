@@ -1,6 +1,6 @@
 # Ordering dotMG PCBs
 
-The board design files in this repo are optimized for [JLC PCB](jlcpcb.com). Gerber files can be found in this repo under [hardware](hardware) sub-directories. Compress the desired versioned sub-directory to a ZIP file to upload to JLC PCB.
+The board design files in this repo are optimized for [JLC PCB](jlcpcb.com). Gerber files can be found in this repo under [hardware](/hardware) sub-directories. Compress the desired versioned sub-directory to a ZIP file to upload to JLC PCB.
 
 Below are the recommended settings for the JLC PCB order page:
 

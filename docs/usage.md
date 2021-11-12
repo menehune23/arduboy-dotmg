@@ -10,6 +10,8 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 1. Connect the game cartridge to your computer using a micro-USB cable, then select the `dotMG (Pro Micro)` board from the `Tools` menu
 
+    > If your game cartridge is still plugged into the console, be sure to connect to the game cartridge's USB port, **not** the port on the console. It is OK and expected that the console will power on in this case, regardless of the power switch position (because power is coming through the cartridge directly).
+
 1. If a USB port was not selected for you, select one
 
 

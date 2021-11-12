@@ -144,6 +144,8 @@ Other helpful links:
 
 - Metal file or sandpaper, for trimming board tabs
 
+- Tweezers
+
 - _Optional_: Needle-nose pliers, for trimming board tabs
 
 - _Optional_: Hobby knife (if trimming screws/standoffs)

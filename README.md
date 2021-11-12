@@ -68,4 +68,4 @@ Copyright (c) 2021 Andrew Meyer.
 
 This project is for DIYers and hobbyists. It may not be used for anything considered commercial use without the author's explicit, written consent. Otherwise, use at your own risk and have fun!
 
-**This project is not officially licensed or endorsed by [Arduboy](https://arduboy.com).**
+**This project is not officially licensed or endorsed by [Arduboy](https://arduboy.com) or [Nintendo](https://nintendo.com).**

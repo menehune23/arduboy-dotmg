@@ -25,7 +25,6 @@ _(formerly named Arduboy CE)_
 
 Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Designed to be reminiscent of the original DMG Game Boy, dotMG combines game cartridges with Arduboy greatness!
 
-
 ## Features
 
 - Swappable game cartridges based on the Arduino Pro Micro (including reverse cart protection)
@@ -38,7 +37,6 @@ Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Design
 
 - Large 2.44" 128x64 high-contrast OLED display
 
-
 ## Documentation
 
 Select one of the following to learn how to build and use dotMG
@@ -46,12 +44,11 @@ Select one of the following to learn how to build and use dotMG
 - [Build Guide](docs/build.md)
 - [Usage Guide](docs/usage.md)
 - [PCB Ordering Guide](docs/pcb-ordering.md)
-
+- [Shell Ordering Guide](docs/shell-ordering.md)
 
 ## Reporting Issues
 
 If you've found a hardware/software bug, have feedback, or if you just need help troubleshooting, please [file an issue](https://github.com/menehune23/arduboy-dotmg/issues). I'm just one person, so I'll try to respond as best as I can (bugs will take priority over feedback and troubleshooting).
-
 
 ## License
 

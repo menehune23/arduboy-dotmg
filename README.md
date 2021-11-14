@@ -44,7 +44,7 @@ Select one of the following to learn how to build and use dotMG
 - [Build Guide](docs/build.md)
 - [Usage Guide](docs/usage.md)
 - [PCB Ordering Guide](docs/pcb-ordering.md)
-- [Shell Ordering Guide](docs/shell-ordering.md)
+- [Custom Shell Guide](docs/custom-shell.md)
 
 ## Reporting Issues
 

@@ -1,4 +1,4 @@
-# Ordering dotMG Shells
+# Custom dotMG Shells
 
 If you'd like to change up the shell from the PCB-based one, this repo contains SVG files under the [`shell`](/shell) directory for laser-cutting your own. Use these to upload to a laser-cutting service (e.g. [Ponoko](https://ponoko.com)) or cut with your own laser cutter.
 

@@ -2,7 +2,7 @@
 
 The board design files in this repo are optimized for [JLC PCB](jlcpcb.com). Gerber files can be found in this repo under [`hardware`](/hardware) sub-directories. Compress the desired versioned sub-directory to a ZIP file to upload to JLC PCB.
 
-The system PCB comes with three parts, connected by breakaway tabs: the main board and two shell boards (front and back). You can also [laser-cut your own shell](shell-ordering.md).
+The system PCB comes with three parts, connected by breakaway tabs: the main board and two shell boards (front and back). You can also [laser-cut your own shell](custom-shell.md).
 
 Below are the recommended settings for the JLC PCB order page:
 

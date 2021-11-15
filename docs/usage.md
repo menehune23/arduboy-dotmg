@@ -14,7 +14,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 1. If a USB port was not selected for you in the IDE, select one
 
-## Uploading Games & Programs
+## Uploading Games
 
 1. [Select an Arduino sketch to upload](#game-resources) and open it in the Arduino IDE
 

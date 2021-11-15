@@ -34,7 +34,7 @@ The dotMG board package defines the following macros automatically (usable with 
 
 - `DAB_DOTMG_PRO_MICRO`: If defined, signifies that a dotMG Pro Micro cartrige is running the code
 
-- <a id="no-rgb"></a> `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `Has RGB LED` was selected in the Arduino IDE `Tools` menu (signifies `No RGB LED` if not defined)
+- <a id="no-rgb"></a> `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `No RGB LED` was selected in the Arduino IDE `Tools` menu (signifies `Has RGB LED` if not defined)
 
 ### Pre-made Games
 

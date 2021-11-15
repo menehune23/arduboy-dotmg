@@ -28,9 +28,38 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 ### Game Resources
 
-Below are some recommended places to get game sketches to upload to your cartridges:
+If you want to learn to program your own games for dotMG using the Arduboy libraries, [here's a good place to start](https://community.arduboy.com/t/make-your-own-arduboy-game-part-2-printing-text). Some searches on Google or YouTube for "Arduboy programming tutorial" will also likely yield helpful results.
+
+If you'd rather get going with some pre-made games, here are some resources for game sketches:
 
 - [Team ARG Museum](https://team-arg-museum.github.io)
 - [Erwin's Arduboy Collection](https://arduboy.ried.cl)
 
 > **Note:** If you come across `.hex` files, they're likely compiled for the original Arduboy and are not natively compatible with dotMG. For best results, locate the game's source code, then upload using the steps given above.
+
+## Extending dotMG
+
+Ready to hack dotMG and have some real fun? You can use the built-in `EXT` header to add your own sensors, an RGB LED, or even a flash chip (for storing hundreds of games at once).
+
+Use the following pinouts and wiring diagrams as a reference.
+
+### Pinouts
+
+<center><img src="ext_pinout.png"></center>
+<center><img src="cart_pinout.png"></center>
+
+### Wiring Diagrams
+
+- [System wiring diagram](/hardware/system/schematic.pdf)
+- [Cartrige wiring diagram](/hardware/cart/schematic.pdf)
+
+### RGB LED
+
+Some Arduboy games (or games of your own making) make use of an RGB LED. If you want to add one to your dotMG, be sure to:
+
+- Use a [**common anode** RGB LED](https://www.hackster.io/techmirtz/using-common-cathode-and-common-anode-rgb-led-with-arduino-7f3aa9) (or an equivalent configuration of individual LEDs)
+- Use the pins noted in the above pinout
+- Don't forget to add resistors!
+- Select `Has RGB LEDs` from the Arduino `Tools` menu before uploading your sketch
+
+Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LEDs` from the Arduino `Tools` menu. This will optimize the code in the Arduboy library so that it doesn't attempt to use those pins.

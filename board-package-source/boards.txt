@@ -76,12 +76,12 @@ dotmg-pro-micro.menu.core.arduboy-core.build.core=arduboy
 dotmg-pro-micro.menu.core.arduino-core=Standard Arduino core
 dotmg-pro-micro.menu.core.arduino-core.build.core=arduino:arduino
 
-# RGB LEDs
+# RGB LED
 
-dotmg-pro-micro.menu.rgbled.no=No RGB LEDs
+dotmg-pro-micro.menu.rgbled.no=No RGB LED
 dotmg-pro-micro.menu.rgbled.no.rgbled_flag=-DAB_DOTMG_PRO_MICRO__NO_RGBLED
 
-dotmg-pro-micro.menu.rgbled.yes=Has RGB LEDs (D10, D3, D9)
+dotmg-pro-micro.menu.rgbled.yes=Has RGB LED (D10, D3, D9)
 dotmg-pro-micro.menu.rgbled.yes.rgbled_flag=
 
 ################################################################################

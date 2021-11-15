@@ -5,7 +5,7 @@ import sys
 import tarfile
 
 # ---------------------------------------------------------------------------------------
-# Usage:
+# Usage (after bumping version in 'platform.txt'):
 #   python3 update-index.py [base-url]
 #
 # Note:

@@ -34,7 +34,7 @@ The dotMG board package defines the following macros automatically (usable with 
 
 - `DAB_DOTMG_PRO_MICRO`: If defined, signifies that a dotMG Pro Micro cartrige is running the code
 
-- <a id="no-rgb"></a> `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `Has RBG LEDs` was selected in the Arduino IDE `Tools` menu (signifies `No RGB LEDs` if not defined)
+- <a id="no-rgb"></a> `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `Has RGB LED` was selected in the Arduino IDE `Tools` menu (signifies `No RGB LED` if not defined)
 
 ### Pre-made Games
 
@@ -76,9 +76,9 @@ Some Arduboy games (or games of your own making) make use of an RGB LED. If you 
 - Use a [**common anode** RGB LED](https://www.hackster.io/techmirtz/using-common-cathode-and-common-anode-rgb-led-with-arduino-7f3aa9) (or an equivalent configuration of individual LEDs)
 - Use the pins noted in the above pinout
 - Don't forget to add resistors!
-- Select `Has RBG LEDs` from the Arduino IDE `Tools` menu before uploading your sketch (if using Arduboy libraries)
+- Select `Has RGB LED` from the Arduino IDE `Tools` menu before uploading your sketch (if using Arduboy libraries)
 
-Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RBG LEDs` from the Arduino IDE `Tools` menu. This will optimize the code in the Arduboy library so that it doesn't attempt to use those pins.
+Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will optimize the code in the Arduboy library so that it doesn't attempt to use those pins.
 
 > If you're not using an Arduboy library, you can still [check the RGB menu setting in code](#no-rgb).
 

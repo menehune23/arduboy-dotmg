@@ -53,11 +53,11 @@ Use the following pinouts and wiring diagrams as references.
 
 ### Pinouts
 
-<p align="middle">
+<p align="middle" text-align="center">
     <a href="https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/docs/ext_pinout.png"><img src="ext_pinout.png" width="500px"></a>
     (Click to enlarge)
 </p>
-<p align="middle">
+<p align="middle" text-align="center">
     <a href="https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/docs/cart_pinout.png"><img src="cart_pinout.png" width="500px"></a>
     (Click to enlarge)
 </p>

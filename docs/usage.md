@@ -89,3 +89,5 @@ Flash chips can store hundreds of games at once. Adding a flash chip to dotMG is
 - Wiring a flash chip using the above pinout
 - Installing the Cathy3K bootloader onto your game cartridge
 - Compiling games to `.hex` files and uploading them to the flash chip
+
+If you choose not to use a flash chip, you can use the flash chip select pin (`FLASH CS` in the pinout) for something else.

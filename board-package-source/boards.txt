@@ -2,7 +2,7 @@
 
 menu.core=Core
 menu.boot=Bootloader
-menu.rgbled=RGB LEDs
+menu.rgbled=RGB LED
 
 ################################################################################
 # dotMG (Pro Micro) board

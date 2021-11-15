@@ -30,11 +30,11 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 If you want to learn to program your own games for dotMG using the Arduboy libraries, [here's a good place to start](https://community.arduboy.com/t/make-your-own-arduboy-game-part-2-printing-text). Some searches on Google or YouTube for "Arduboy programming tutorial" will also likely yield helpful results.
 
-The dotMG board package defines the following macros automatically (usable with compiler directives like `#ifdef` or `#ifndef`):
+<a id="macros"></a> The dotMG board package defines the following macros automatically (usable with compiler directives like `#ifdef` or `#ifndef`):
 
 - `DAB_DOTMG_PRO_MICRO`: If defined, signifies that a dotMG Pro Micro cartrige is running the code
 
-- <a id="no-rgb"></a> `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `No RGB LED` was selected in the Arduino IDE `Tools` menu (signifies `Has RGB LED` if not defined)
+- `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `No RGB LED` was selected in the Arduino IDE `Tools` menu (signifies `Has RGB LED` if not defined)
 
 ### Pre-made Games
 
@@ -80,7 +80,7 @@ Some Arduboy games (or games of your own making) make use of an RGB LED. If you 
 
 Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will remove the LED-lighting code in the Arduboy library so that it doesn't attempt to use those pins.
 
-> If you're not using an Arduboy library, you can still [check the RGB LED menu setting in code](#no-rgb).
+> If you're not using an Arduboy library, you can still [check the RGB LED menu setting in code](#macros).
 
 ### Flash Chip
 

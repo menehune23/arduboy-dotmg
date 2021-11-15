@@ -78,7 +78,7 @@ Some Arduboy games (or games of your own making) make use of an RGB LED. If you 
 - Don't forget to add resistors!
 - Select `Has RGB LED` from the Arduino IDE `Tools` menu before uploading your sketch (if using Arduboy libraries)
 
-Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will optimize the code in the Arduboy library so that it doesn't attempt to use those pins.
+Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will remove the LED-lighting code in the Arduboy library so that it doesn't attempt to use those pins.
 
 > If you're not using an Arduboy library, you can still [check the RGB menu setting in code](#no-rgb).
 

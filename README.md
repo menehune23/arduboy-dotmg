@@ -12,11 +12,11 @@ game console!
 
 _(formerly named Arduboy CE)_
 
-<p align="middle">
+<p align="center">
    <img src="assets/front_black.png" width="150px">
    <img src="assets/advance_front_black.png" width="300px">
 </p>
-<p align="middle">
+<p align="center">
    <img src="assets/dotmg.png" width="250px">
    <img src="assets/dotmg_advance.png" width="250px">
 </p>

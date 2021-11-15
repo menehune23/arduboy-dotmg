@@ -16,7 +16,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 ## Uploading Games & Programs
 
-1. [Select an Arduino sketch to upload](#games) and open it in the Arduino IDE
+1. [Select an Arduino sketch to upload](#game-resources) and open it in the Arduino IDE
 
 1. Adjust compilation options via the `Tools` menu, if needed (e.g. to [use an RGB LED](#rgb-led))
 

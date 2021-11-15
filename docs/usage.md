@@ -30,7 +30,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 If you want to learn to program your own games for dotMG using the Arduboy libraries, [here's a good place to start](https://community.arduboy.com/t/make-your-own-arduboy-game-part-2-printing-text). Some searches on Google or YouTube for "Arduboy programming tutorial" will also likely yield helpful results.
 
-The dotMG board package defines the following macros automatically (usable with compiler directives like `#ifdef` or `#ifndef`), for use when programming your own games:
+The dotMG board package defines the following macros automatically (usable with compiler directives like `#ifdef` or `#ifndef`):
 
 - `DAB_DOTMG_PRO_MICRO`: If defined, signifies that a dotMG Pro Micro cartrige is running the code
 

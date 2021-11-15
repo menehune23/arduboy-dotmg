@@ -56,6 +56,7 @@ Use the following pinouts and wiring diagrams as references.
 (Click to enlarge)
 
 <center><a href="https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/docs/ext_pinout.png" target="_blank"><img src="ext_pinout.png" width="400px"></a></center>
+
 <center><a href="https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/docs/cart_pinout.png" target="_blank"><img src="cart_pinout.png" width="400px"></a></center>
 
 ### Wiring Diagrams

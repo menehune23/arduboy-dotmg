@@ -80,7 +80,7 @@ Some Arduboy games (or games of your own making) make use of an RGB LED. If you 
 
 Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will remove the LED-lighting code in the Arduboy library so that it doesn't attempt to use those pins.
 
-> If you're not using an Arduboy library, you can still [check the RGB menu setting in code](#no-rgb).
+> If you're not using an Arduboy library, you can still [check the RGB LED menu setting in code](#no-rgb).
 
 ### Flash Chip
 

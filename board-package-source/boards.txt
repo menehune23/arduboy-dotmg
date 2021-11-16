@@ -114,13 +114,11 @@ arduboy.bootloader.tool=arduino:avrdude
 arduboy.bootloader.low_fuses=0xff
 arduboy.bootloader.high_fuses=0xd0
 arduboy.bootloader.extended_fuses=0xcb
-arduboy.bootloader.file=caterina/Caterina-Leonardo.hex
 arduboy.bootloader.unlock_bits=0x3F
 arduboy.bootloader.lock_bits=0x2F
 
 arduboy.build.mcu=atmega32u4
 arduboy.build.f_cpu=16000000L
-arduboy.build.variant=arduboy
 arduboy.build.board=AVR_ARDUBOY
 arduboy.build.vid=0x2341
 arduboy.build.pid=0x8036

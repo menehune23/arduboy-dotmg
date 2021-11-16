@@ -24,7 +24,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 > **IMPORTANT!**
 >
-> The dotMG board package already contains its own versions of the Arduboy libraries (`Arduboy`, `Arduboy2`, `ArduboyTones`, `ATMlib`, `ArduboyFX`), which have been updated for compatibility with dotMG. To use dotMG, you must **uninstall any Arduboy libraries** from your IDE if you've previously installed them yourself. Otherwise they'll take precedence over the versions in the dotMG board package, leading to confusing compiler errors.
+> The dotMG board package contains [its own versions of the Arduboy libraries (among others), which have been updated for compatibility with dotMG. To use dotMG, you must **uninstall [these libraries](/board-package-source/libraries)** from your IDE if you've previously installed them yourself. Otherwise they'll take precedence over the versions in the dotMG board package, leading to confusing compiler errors.
 >
 > To program an official Arduboy, simply select the `Arduboy (Official)` board from the `Tools / dotMG` board list before uploading your sketch.
 

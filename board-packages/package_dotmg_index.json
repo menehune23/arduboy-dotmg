@@ -166,6 +166,9 @@
                     "boards": [
                         {
                             "name": "dotMG (Pro Micro)"
+                        },
+                        {
+                            "name": "Arduboy (Official)"
                         }
                     ],
                     "category": "Contributed",

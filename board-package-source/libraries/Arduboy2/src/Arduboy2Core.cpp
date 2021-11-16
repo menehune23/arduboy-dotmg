@@ -230,6 +230,7 @@ void Arduboy2Core::bootPins()
 
   // Port C
   // Speaker: Not set here. Controlled by audio class
+
   // Port D INPUT_PULLUP or HIGH
   PORTD = (
          #if defined(AB_ALTERNATE_WIRING) && !defined(AB_DOTMG_PRO_MICRO__NO_RGBLED)
@@ -242,10 +243,15 @@ void Arduboy2Core::bootPins()
          #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
           _BV(DC_BIT) |
          #endif
+         #if defined(AB_DOTMG_PRO_MICRO)
+          _BV(CS_BIT) |  // for dotMG, keep this raised -- it will be asserted when needed
+         #endif
           0) &
       ~( // Port D INPUTs or LOW outputs
          #if !(defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX))
-          _BV(CS_BIT) |  // oled display enabled
+           #if !defined(AB_DOTMG_PRO_MICRO)  // for dotMG, don't always have display CS asserted, to allow for other SPI devices
+             _BV(CS_BIT) |  // oled display enabled
+           #endif
           _BV(RST_BIT) | // reset active
          #endif
          #if defined(AB_ALTERNATE_WIRING)
@@ -356,6 +362,10 @@ void Arduboy2Core::bootPins()
 
 void Arduboy2Core::bootOLED()
 {
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitClear(CS_PORT, CS_BIT);
+#endif
+
 #if defined(GU12864_800B)
   bitSet(RST_PORT,RST_BIT);
   delayByte(10);
@@ -418,6 +428,10 @@ void Arduboy2Core::bootOLED()
      SPItransfer(cmd);
    }
  #endif
+#endif
+
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitSet(CS_PORT, CS_BIT);
 #endif
 }
 
@@ -549,6 +563,10 @@ void Arduboy2Core::displayWrite(uint8_t data)
 // Shut down the display
 void Arduboy2Core::displayOff()
 {
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitClear(CS_PORT, CS_BIT);
+#endif
+
 #if defined(GU12864_800B)
   displayEnable();
   displayWrite(0x20);
@@ -565,6 +583,10 @@ void Arduboy2Core::displayOff()
   SPItransfer(0xAE); // display off
   SPItransfer(0x8D); // charge pump:
   SPItransfer(0x10); //   disable
+#endif
+
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitSet(CS_PORT, CS_BIT);
 #endif
 }
 
@@ -590,6 +612,10 @@ void Arduboy2Core::paint8Pixels(uint8_t pixels)
 
 void Arduboy2Core::paintScreen(const uint8_t *image)
 {
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitClear(CS_PORT, CS_BIT);
+#endif
+
 #if defined(GU12864_800B)
   displayEnable();
   for (uint8_t r = 0; r < (HEIGHT/8); r++)
@@ -681,12 +707,20 @@ void Arduboy2Core::paintScreen(const uint8_t *image)
     SPItransfer(pgm_read_byte(image + i));
   }
 #endif
+
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitSet(CS_PORT, CS_BIT);
+#endif
 }
 
 // paint from a memory buffer, this should be FAST as it's likely what
 // will be used by any buffer based subclass
 void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
 {
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitClear(CS_PORT, CS_BIT);
+#endif
+
 #if defined(GU12864_800B)
   displayEnable();
   for (uint8_t r = 0; r < (HEIGHT/8); r++)
@@ -1001,6 +1035,10 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
       [clear]   "r"   (clear)
   );
   #endif
+
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitSet(CS_PORT, CS_BIT);
+#endif
 }
 #if 0
 // For reference, this is the "closed loop" C++ version of paintScreen()
@@ -1045,6 +1083,10 @@ void Arduboy2Core::paintScreen(uint8_t image[], bool clear)
 
 void Arduboy2Core::blank()
 {
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitClear(CS_PORT, CS_BIT);
+#endif
+
 #if defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX)
   i2c_start(SSD1306_I2C_DATA);
   for (int i = 0; i < (HEIGHT * WIDTH) / 8; i++)
@@ -1060,10 +1102,18 @@ void Arduboy2Core::blank()
  #endif
     SPItransfer(0x00);
 #endif
+
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitSet(CS_PORT, CS_BIT);
+#endif
 }
 
 void Arduboy2Core::sendLCDCommand(uint8_t command)
 {
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitClear(CS_PORT, CS_BIT);
+#endif
+
 #if defined(OLED_SSD1306_I2C) || (OLED_SSD1306_I2CX)
   i2c_start(SSD1306_I2C_CMD);
   i2c_sendByte(command);
@@ -1072,6 +1122,10 @@ void Arduboy2Core::sendLCDCommand(uint8_t command)
   LCDCommandMode();
   SPItransfer(command);
   LCDDataMode();
+#endif
+
+#if defined(AB_DOTMG_PRO_MICRO)
+  bitSet(CS_PORT, CS_BIT);
 #endif
 }
 

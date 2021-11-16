@@ -1,12 +1,12 @@
 <img src="assets/logo.png" width="300px">
 
-dotMG is a
-
-```// DIY```
+dotMG is an
 
 ```// Arduboy-compatible```
 
 ```// cartridge-based```
+
+```// DIY```
 
 game console!
 

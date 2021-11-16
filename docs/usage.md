@@ -53,7 +53,9 @@ If you want to find pre-made games, here are some resources for game sketches:
 
 Ready to hack dotMG and have some real fun? You can use the built-in EXT header to add your own sensors, an [RGB LED](#rgb-led), or even a [flash chip](#flash-chip).
 
-Use the following pinouts and wiring diagrams as references.
+### Pin Initialization
+
+If using the EXT pins for custom input/out in your code, be sure to initialize your pins **after** the Arduboy-specific pins are initialized (usually after `arduboy.begin()` is called). This is needed so that the Arduboy-specific pin initialization doesn't override any of your own initialization (especially true for the RGB LED pins).
 
 ### Pinouts
 
@@ -62,6 +64,7 @@ Use the following pinouts and wiring diagrams as references.
     <br>
     (Click to enlarge)
 </p>
+
 <p align="center">
     <a href="https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/docs/cart_pinout.png"><img src="cart_pinout.png" width="500px"></a>
     <br>
@@ -82,7 +85,7 @@ Some Arduboy games (or games of your own making) make use of an RGB LED. If you 
 - Don't forget to add resistors!
 - Select `Has RGB LED` from the Arduino IDE `Tools` menu before uploading your sketch (if using Arduboy libraries)
 
-Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will remove the LED-lighting code in the Arduboy library so that it doesn't attempt to use those pins.
+Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will remove the LED-lighting code in the Arduboy library so that it doesn't attempt to use those pins during gameplay (see note on [pin initialization](#pin-initialization)).
 
 > If you're not using an Arduboy library, you can still [check the RGB LED menu setting in code](#macros).
 

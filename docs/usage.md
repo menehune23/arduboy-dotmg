@@ -47,7 +47,7 @@ If you want to find pre-made games, here are some resources for game sketches:
 - [Team ARG Museum](https://team-arg-museum.github.io)
 - [Erwin's Arduboy Collection](https://arduboy.ried.cl)
 
-> **Note:** If you come across `.hex` files, they're likely compiled for the original Arduboy and are not natively compatible with dotMG. For best results, locate the game's source code, then upload using the steps given above.
+> If you come across `.hex` files, they're likely compiled for the original Arduboy and are not natively compatible with dotMG. For best results, locate the game's source code, then upload using the steps given above.
 
 ## Extending dotMG
 

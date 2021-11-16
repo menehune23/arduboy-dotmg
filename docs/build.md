@@ -51,8 +51,6 @@ Before getting started, be sure you've gathered [parts, materials, and tools](#p
 
 1. Assemble the shell using the nylon standoffs and screws. Male-female standoffs should go in front and attach to the female-female standoffs on the back side. The shell front and back can then be mounted to the standoffs with the screws.
 
-    > **Note:**
-    >
     > - The shell mounting holes are slightly enlarged to allow for countersink nylon screws to "sink" in a bit
     >
     > - Depending on the screw and standoff lengths, you may need to trim them with a hobby knife to match the lengths in the [BOM](#parts)

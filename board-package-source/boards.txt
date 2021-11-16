@@ -46,17 +46,17 @@ dotmg-pro-micro.build.usb_product="ABA1309"
 dotmg-pro-micro.build.board=AVR_PROMICRO -DAB_ALTERNATE_WIRING -DAB_DOTMG_PRO_MICRO
 dotmg-pro-micro.build.extra_flags=-DARDUBOY_10 -DOLED_SSD1309 {build.flash_cs} {build.display.flags} {rgbled_flag} {build.usb_flags}
 
-# Display #
+### Display ###
 
 dotmg-pro-micro.build.display=-ssd1309
 dotmg-pro-micro.build.display.flags=-DOLED_SSD1309
 
-# External flash chip select pin #
+### External flash chip select pin ###
 
 dotmg-pro-micro.build.flash_cs=-DCART_CS_SDA
 dotmg-pro-micro.build.flashselect=-sda
 
-# Bootloader #
+### Bootloader ###
 
 dotmg-pro-micro.menu.boot.cathy3kg=Cathy3K (starts with game)
 dotmg-pro-micro.menu.boot.cathy3kg.upload.maximum_size=29696
@@ -68,7 +68,7 @@ dotmg-pro-micro.menu.boot.cathy3k.upload.maximum_size=29696
 dotmg-pro-micro.menu.boot.cathy3k.bootloader.high_fuses=0xd2
 dotmg-pro-micro.menu.boot.cathy3k.bootloader.file=cathy3k/arduboy3k-bootloader-menu-promicro-sda.hex
 
-# Core #
+### Core ###
 
 dotmg-pro-micro.menu.core.arduboy-core=Optimized Arduboy core
 dotmg-pro-micro.menu.core.arduboy-core.build.core=arduboy
@@ -76,7 +76,7 @@ dotmg-pro-micro.menu.core.arduboy-core.build.core=arduboy
 dotmg-pro-micro.menu.core.arduino-core=Standard Arduino core
 dotmg-pro-micro.menu.core.arduino-core.build.core=arduino:arduino
 
-# RGB LED
+### RGB LED ###
 
 dotmg-pro-micro.menu.rgbled.no=No RGB LED
 dotmg-pro-micro.menu.rgbled.no.rgbled_flag=-DAB_DOTMG_PRO_MICRO__NO_RGBLED
@@ -84,4 +84,69 @@ dotmg-pro-micro.menu.rgbled.no.rgbled_flag=-DAB_DOTMG_PRO_MICRO__NO_RGBLED
 dotmg-pro-micro.menu.rgbled.yes=Has RGB LED (D10, D3, D9)
 dotmg-pro-micro.menu.rgbled.yes.rgbled_flag=
 
+
 ################################################################################
+# Arduboy (Official) board
+################################################################################
+
+arduboy.name=Arduboy (Official)
+
+# Arduino Leonardo
+arduboy.vid.0=0x2341
+arduboy.pid.0=0x0036
+arduboy.vid.1=0x2341
+arduboy.pid.1=0x8036
+arduboy.vid.2=0x2A03
+arduboy.pid.2=0x0036
+arduboy.vid.3=0x2A03
+arduboy.pid.3=0x8036
+
+arduboy.upload.tool=arduino:avrdude
+arduboy.upload.protocol=avr109
+arduboy.upload.maximum_size=28672
+arduboy.upload.maximum_data_size=2560
+arduboy.upload.speed=57600
+arduboy.upload.disable_flushing=true
+arduboy.upload.use_1200bps_touch=true
+arduboy.upload.wait_for_upload_port=true
+
+arduboy.bootloader.tool=arduino:avrdude
+arduboy.bootloader.low_fuses=0xff
+arduboy.bootloader.high_fuses=0xd0
+arduboy.bootloader.extended_fuses=0xcb
+arduboy.bootloader.file=caterina/Caterina-Leonardo.hex
+arduboy.bootloader.unlock_bits=0x3F
+arduboy.bootloader.lock_bits=0x2F
+
+arduboy.build.mcu=atmega32u4
+arduboy.build.f_cpu=16000000L
+arduboy.build.variant=arduboy
+arduboy.build.board=AVR_ARDUBOY
+arduboy.build.vid=0x2341
+arduboy.build.pid=0x8036
+arduboy.build.variant=arduboy
+arduboy.build.usb_product="Arduboy"
+arduboy.build.board=AVR_ARDUBOY
+arduboy.build.core=arduino:arduino
+arduboy.build.flash_cs=-DCART_CS_SDA
+arduboy.build.extra_flags=-DARDUBOY_10 {build.flash_cs} {build.usb_flags}
+
+### Core ###
+
+arduboy.menu.core.arduboy-core=Arduboy optimized core
+arduboy.menu.core.arduboy-core.build.core=arduboy
+
+arduboy.menu.core.arduino-core=Standard Arduino core
+arduboy.menu.core.arduino-core.build.core=arduino:arduino
+
+### Bootloader ###
+
+arduboy.menu.boot.cathy3k=Cathy3K (starts with menu)
+arduboy.menu.boot.cathy3k.upload.maximum_size=29696
+arduboy.menu.boot.cathy3k.bootloader.high_fuses=0xd2
+arduboy.menu.boot.cathy3k.bootloader.file=cathy3k/arduboy3k-bootloader-menu-sda.hex
+
+arduboy.menu.boot.cathy3kg=Cathy3K (starts with game)
+arduboy.menu.boot.cathy3kg.upload.maximum_size=29696
+arduboy.menu.boot.cathy3kg.bootloader.high_fuses=0xd2
+arduboy.menu.boot.cathy3kg.bootloader.file=cathy3k/arduboy3k-bootloader-game-sda.hex

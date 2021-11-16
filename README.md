@@ -1,6 +1,6 @@
-<img src="assets/logo.png" width="300px">
+<p align="center"><img src="assets/logo.png" width="300px"></p>
 
-dotMG is an
+**dotMG** is an
 
 ```// Arduboy-compatible```
 

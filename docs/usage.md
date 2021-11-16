@@ -6,7 +6,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 
 1. Add `https://raw.githubusercontent.com/menehune23/arduboy-dotmg/main/board-packages/package_dotmg_index.json` to board manager URLs in the Arduino IDE (found in settings)
 
-1. Open the board manager from the Arduino IDE `Tools` menu, then search for "dotMG" and install
+1. Open the board manager from the Arduino IDE `Tools` menu, then search for `dotMG` and install
 
 1. Connect the game cartridge to your computer using a micro-USB cable, then select the `dotMG (Pro Micro)` board from the `Tools` menu
 
@@ -26,7 +26,7 @@ If you've already [built your own dotMG](build.md), you can program game cartrid
 >
 > The dotMG board package already contains its own versions of the Arduboy libraries (`Arduboy`, `Arduboy2`, `ArduboyTones`, `ATMlib`, `ArduboyFX`), which have been updated for compatibility with dotMG. To use dotMG, you must **uninstall any Arduboy libraries** from your IDE if you've previously installed them yourself. Otherwise they'll take precedence over the versions in the dotMG board package, leading to confusing compiler errors.
 >
-> To program an official Arduboy, simply select the `Arduboy (Official)` board from the `Tools / dotMG` menu before uploading your sketch.
+> To program an official Arduboy, simply select the `Arduboy (Official)` board from the `Tools / dotMG` board list before uploading your sketch.
 
 ## Game Resources
 

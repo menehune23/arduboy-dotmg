@@ -58,15 +58,15 @@ dotmg-pro-micro.build.flashselect=-sda
 
 ### Bootloader ###
 
-dotmg-pro-micro.menu.boot.cathy3kg=Cathy3K (starts with game)
-dotmg-pro-micro.menu.boot.cathy3kg.upload.maximum_size=29696
-dotmg-pro-micro.menu.boot.cathy3kg.bootloader.high_fuses=0xd2
-dotmg-pro-micro.menu.boot.cathy3kg.bootloader.file=cathy3k/arduboy3k-bootloader-game-promicro-sda.hex
-
 dotmg-pro-micro.menu.boot.cathy3k=Cathy3K (starts with menu)
 dotmg-pro-micro.menu.boot.cathy3k.upload.maximum_size=29696
 dotmg-pro-micro.menu.boot.cathy3k.bootloader.high_fuses=0xd2
 dotmg-pro-micro.menu.boot.cathy3k.bootloader.file=cathy3k/arduboy3k-bootloader-menu-promicro-sda.hex
+
+dotmg-pro-micro.menu.boot.cathy3kg=Cathy3K (starts with game)
+dotmg-pro-micro.menu.boot.cathy3kg.upload.maximum_size=29696
+dotmg-pro-micro.menu.boot.cathy3kg.bootloader.high_fuses=0xd2
+dotmg-pro-micro.menu.boot.cathy3kg.bootloader.file=cathy3k/arduboy3k-bootloader-game-promicro-sda.hex
 
 ### Core ###
 

@@ -11,7 +11,7 @@ import tarfile
 # Note:
 # To test package locally, set base URL to 'file:///<path/to/this/repo/board-packages>'.
 # Then add 'file:///<path/to/this/repo/board-packages/package_arduboy-ce_index.json'
-# to board manager URLs in Arduino IDE. You can then find 'dotMG (ProMicro)' in IDE
+# to board manager URLs in Arduino IDE. You can then find 'dotMG (Pro Micro)' in IDE
 # board manager.
 #
 # If base URL is left blank, it defaults to point at this project's remote repo.

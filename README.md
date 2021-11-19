@@ -6,24 +6,22 @@
 
 ```// cartridge-based```
 
-```// DIY```
+```// hackable```
 
-game console!
+DIY game console!
 
-_(formerly named Arduboy CE)_
-
-<p align="center">
-   <img src="assets/front_black.png" width="150px">
-   <img src="assets/advance_front_black.png" width="300px">
-</p>
 <p align="center">
    <img src="assets/dotmg.png" width="250px">
    <img src="assets/dotmg_advance.png" width="250px">
 </p>
+<p align="center">
+   <img src="assets/front_black.png" width="150px">
+   <img src="assets/advance_front_black.png" width="300px">
+</p>
 
 > More pictures in the [assets](assets) folder!
 
-Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Designed to be reminiscent of the original DMG Game Boy, dotMG combines game cartridges with Arduboy greatness!
+Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Designed to remind you of the early days of handheld gaming, dotMG combines game cartridges with Arduboy greatness!
 
 ## Features
 
@@ -58,4 +56,4 @@ Copyright (c) 2021 Andrew Meyer.
 
 This project is for DIYers and hobbyists. It may not be used for anything considered commercial use without the author's explicit, written consent. Otherwise, use at your own risk and have fun!
 
-**This project is not officially licensed or endorsed by [Arduboy](https://arduboy.com) or [Nintendo](https://nintendo.com).**
+**This project is not officially licensed or endorsed by [Arduboy](https://arduboy.com).**

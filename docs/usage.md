@@ -36,7 +36,7 @@ If you want to learn to program your own games for dotMG using the Arduboy libra
 
 <a id="macros"></a> The dotMG board package defines the following macros automatically (usable with compiler directives like `#ifdef` or `#ifndef`):
 
-- `DAB_DOTMG_PRO_MICRO`: If defined, signifies that the code is for the `dotMG (Pro Micro)` board (will be undefined if a different board was selected from `Tools`)
+- `DAB_DOTMG_PRO_MICRO`: If defined, signifies that the code will target the `dotMG (Pro Micro)` board (will be undefined if a different board was selected from `Tools`)
 
 - `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `No RGB LED` was selected in the Arduino IDE `Tools` menu (will be undefined if `Has RGB LED` was selected)
 

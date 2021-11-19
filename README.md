@@ -27,7 +27,7 @@ Designed to remind you of the early days of handheld gaming, dotMG combines game
 
 - Swappable game cartridges based on the Arduino Pro Micro (including reverse cart protection)
 
-- Extensibility via EXT header (exposes SPI/I2C/GPIO pins) -- add your own crank, accelerometer, joystick, flash chip, RGB LED, or any other add-on of your own creation!
+- Hackability via EXT header (exposes SPI/I2C/GPIO pins) -- add your own crank, accelerometer, joystick, flash chip, RGB LED, or any other add-on of your own creation!
 
 - Rechargeable battery (with play 'n charge capability via load-sharing circuitry)
 

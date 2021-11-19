@@ -21,7 +21,7 @@ DIY game console!
 
 > More pictures in the [assets](assets) folder!
 
-Game cartridges are so nostalgic! And Arduboy is all about the nostalgia. Designed to remind you of the early days of handheld gaming, dotMG combines game cartridges with Arduboy greatness!
+Designed to remind you of the early days of handheld gaming, dotMG combines game cartridges with Arduboy greatness!
 
 ## Features
 

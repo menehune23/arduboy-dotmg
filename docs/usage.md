@@ -36,9 +36,9 @@ If you want to learn to program your own games for dotMG using the Arduboy libra
 
 <a id="macros"></a> The dotMG board package defines the following macros automatically (usable with compiler directives like `#ifdef` or `#ifndef`):
 
-- `DAB_DOTMG_PRO_MICRO`: If defined, signifies that a dotMG Pro Micro cartrige is running the code
+- `DAB_DOTMG_PRO_MICRO`: If defined, signifies that the code is for the `dotMG (Pro Micro)` board (will be undefined if a different board was selected from `Tools`)
 
-- `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `No RGB LED` was selected in the Arduino IDE `Tools` menu (signifies `Has RGB LED` if not defined)
+- `DAB_DOTMG_PRO_MICRO__NO_RGBLED`: If defined, signifies that `No RGB LED` was selected in the Arduino IDE `Tools` menu (will be undefined if `Has RGB LED` was selected)
 
 ### Pre-made Games
 
@@ -55,7 +55,7 @@ Ready to hack dotMG and have some real fun? You can use the built-in EXT header 
 
 ### Pin Initialization
 
-If using the EXT pins for custom input/out in your code, be sure to initialize your pins **after** the Arduboy-specific pins are initialized (usually after `arduboy.begin()` is called). This is needed so that the Arduboy-specific pin initialization doesn't override any of your own initialization (especially true for the RGB LED pins).
+If using the EXT pins for custom input/output in your code, be sure to initialize your pins **after** the Arduboy-specific pins are initialized (usually after `arduboy.begin()` is called). This is needed so that the Arduboy-specific pin initialization doesn't override any of your own initialization (especially true for the RGB LED pins).
 
 ### Pinouts
 
@@ -83,11 +83,11 @@ Some Arduboy games (or games of your own making) make use of an RGB LED. If you 
 - Use a [**common anode** RGB LED](https://www.hackster.io/techmirtz/using-common-cathode-and-common-anode-rgb-led-with-arduino-7f3aa9) (or an equivalent configuration of individual LEDs)
 - Use the pins noted in the above pinout
 - Don't forget to add resistors!
-- Select `Has RGB LED` from the Arduino IDE `Tools` menu before uploading your sketch (if using Arduboy libraries)
+- Select `Has RGB LED` from the Arduino IDE `Tools` menu before uploading your sketch
 
 Wiring up an RGB LED is optional. If you choose to use those pins for something else instead, simply select `No RGB LED` from the Arduino IDE `Tools` menu. This will remove the LED-lighting code in the Arduboy library so that it doesn't attempt to use those pins during gameplay (see note on [pin initialization](#pin-initialization)).
 
-> If you're not using an Arduboy library, you can still [check the RGB LED menu setting in code](#macros).
+> If you're not using the Arduboy library, you can still [check the RGB LED menu setting in code](#macros).
 
 ### Flash Chip
 
@@ -97,4 +97,4 @@ Flash chips can store hundreds of games at once. Adding a flash chip to dotMG is
 - Installing the Cathy3K bootloader onto your game cartridge
 - Compiling games to `.hex` files and uploading them to the flash chip
 
-If you choose not to use a flash chip, you can use the flash chip select pin (`FLASH CS` in the pinout) for something else, as the pin is only used by the Cathy3K bootloader.
+If you choose not to use a flash chip, you can use the flash chip select pin (`FLASH CS` in the pinout) for something else, as the pin is only used by the Cathy3K bootloader and the `ArduboyFX` library.

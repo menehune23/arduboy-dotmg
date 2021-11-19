@@ -17,6 +17,7 @@ import tarfile
 # If base URL is left blank, it defaults to point at this project's remote repo.
 # ---------------------------------------------------------------------------------------
 
+
 def make_tarfile(output_filename, source_dir, top_dir):
     with tarfile.open(output_filename, 'w:gz') as tar:
         tar.add(source_dir, arcname=top_dir)
@@ -27,12 +28,14 @@ def make_tarfile(output_filename, source_dir, top_dir):
         hasher.update(data)
         return hasher.hexdigest(), len(data)
 
+
 def find_version(platform_path):
     with open(platform_path, 'rt') as platform_file:
         for line in platform_file:
             if line.startswith('version='):
                 return line.strip('version=').strip()
     return ''
+
 
 src_path = 'board-package-source'
 platform_path = os.path.join(src_path, 'platform.txt')
@@ -41,11 +44,15 @@ base_url = sys.argv[1] if len(sys.argv) > 1 else 'https://raw.githubusercontent.
 tar_name = 'dotmg-' + version + '.tar.gz'
 tar_path = os.path.join('board-packages', tar_name)
 
-digest, size = make_tarfile(tar_path, src_path, version)
-
 with open(os.path.join('board-packages', 'package_dotmg_index.json'), 'r+') as index_file:
     data = json.load(index_file)
     platform = data['packages'][0]['platforms'][-1].copy()
+
+    if platform['version'] == version:
+        raise RuntimeError('Version was not bumped! Be sure to edit platform.txt')
+
+    digest, size = make_tarfile(tar_path, src_path, version)
+
     platform['version'] = version
     platform['archiveFileName'] = tar_name
     platform['checksum'] = 'SHA-256:' + digest

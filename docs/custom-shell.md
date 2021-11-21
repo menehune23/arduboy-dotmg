@@ -2,7 +2,7 @@
 
 If you'd like to change up the shell from the PCB-based one, this repo contains SVG and EPS files under the [`shell`](/shell) directory for laser-cutting your own. Use these to upload to a laser-cutting service (e.g. [Ponoko](https://ponoko.com)) or cut with your own laser cutter.
 
-Below are some tips to keep in mind when ordering or setting up your equipment:
+Below are some tips to keep in mind when ordering or setting up your equipment.
 
 ## Color Layers
 

@@ -65,7 +65,7 @@ See the [PCB Ordering Guide](pcb-ordering.md) if ordering PCBs yourself.
 
 Other helpful links:
 
-- [Full BOM as CSV](bom.csv) (can be uploaded to Digi-Key cart)
+- [Full BOM as CSV](bom.csv) (can be uploaded to [Digi-Key](digikey.com) cart)
 - [Adafruit Wishlist](http://www.adafruit.com/wishlists/520023), to easily order items available from Adafruit
 
 ### Materials & Tools

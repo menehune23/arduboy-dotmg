@@ -1,12 +1,12 @@
 # Custom dotMG Shells
 
-If you'd like to change up the shell from the PCB-based one, this repo contains SVG files under the [`shell`](/shell) directory for laser-cutting your own. Use these to upload to a laser-cutting service (e.g. [Ponoko](https://ponoko.com)) or cut with your own laser cutter.
+If you'd like to change up the shell from the PCB-based one, this repo contains SVG and EPS files under the [`shell`](/shell) directory for laser-cutting your own. Use these to upload to a laser-cutting service (e.g. [Ponoko](https://ponoko.com)) or cut with your own laser cutter.
 
 Below are some tips to keep in mind when ordering or setting up your equipment:
 
-## SVG Colors
+## Color Layers
 
-Each SVG is comprised of two colors:
+Each file is comprised of two color layers:
 - **Light gray/purple:** Cutting
 - **Dark gray:** Engraving
 
@@ -14,11 +14,9 @@ Each SVG is comprised of two colors:
 
 ## Dimensions
 
-Because SVGs don't typically encode units, double check that your part dimensions will come out as follows:
+Double check that your part dimensions will come out as follows:
 - **dotMG**: 73.9mm (width) x 87.2mm (height)
 - **dotMG Advance**: 121.1mm (width) x 55.9mm (height)
-
-> The SVGs in this repo have been tested against [Ponoko](https://ponoko.com), which (as of this writing) reports correct dimensions without needing to scale the SVGs.
 
 ## Thickness
 
